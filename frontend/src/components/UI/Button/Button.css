@@ -1,0 +1,255 @@
+/* portfolio-frontend/src/components/UI/Button/Button.css */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  white-space: nowrap;
+  user-select: none;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+.btn__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.btn__spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn__spinner-icon {
+  width: 1em;
+  height: 1em;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn__ripple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn__ripple::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.3s ease,
+    height 0.3s ease;
+}
+
+.btn:active .btn__ripple::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Variants */
+.btn--primary {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-600),
+    var(--color-primary-700)
+  );
+  color: white;
+  box-shadow: 0 4px 14px rgba(var(--color-primary-rgb), 0.3);
+}
+
+.btn--primary:hover {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-700),
+    var(--color-primary-800)
+  );
+  box-shadow: 0 6px 20px rgba(var(--color-primary-rgb), 0.4);
+}
+
+.btn--secondary {
+  background: linear-gradient(
+    135deg,
+    var(--color-secondary-600),
+    var(--color-secondary-700)
+  );
+  color: white;
+  box-shadow: 0 4px 14px rgba(var(--color-secondary-rgb), 0.3);
+}
+
+.btn--secondary:hover {
+  background: linear-gradient(
+    135deg,
+    var(--color-secondary-700),
+    var(--color-secondary-800)
+  );
+  box-shadow: 0 6px 20px rgba(var(--color-secondary-rgb), 0.4);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-primary-600);
+  border: 2px solid var(--color-primary-600);
+  box-shadow: none;
+}
+
+.btn--outline:hover {
+  background: var(--color-primary-600);
+  color: white;
+  box-shadow: 0 4px 14px rgba(var(--color-primary-rgb), 0.3);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text-primary);
+  box-shadow: none;
+}
+
+.btn--ghost:hover {
+  background: var(--color-background-secondary);
+}
+
+.btn--danger {
+  background: linear-gradient(
+    135deg,
+    var(--color-error-600),
+    var(--color-error-700)
+  );
+  color: white;
+  box-shadow: 0 4px 14px rgba(var(--color-error-rgb), 0.3);
+}
+
+.btn--danger:hover {
+  background: linear-gradient(
+    135deg,
+    var(--color-error-700),
+    var(--color-error-800)
+  );
+  box-shadow: 0 6px 20px rgba(var(--color-error-rgb), 0.4);
+}
+
+/* Sizes */
+.btn--small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  min-height: 36px;
+}
+
+.btn--medium {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  min-height: 44px;
+}
+
+.btn--large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  min-height: 52px;
+}
+
+/* States */
+.btn--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn--loading {
+  cursor: wait;
+}
+
+.btn--loading .btn__content > *:not(.btn__spinner) {
+  opacity: 0.7;
+}
+
+/* Full width */
+.btn--full-width {
+  width: 100%;
+}
+
+/* Icon only */
+.btn--icon {
+  padding: 0.75rem;
+  width: 44px;
+  height: 44px;
+}
+
+.btn--icon.btn--small {
+  padding: 0.5rem;
+  width: 36px;
+  height: 36px;
+}
+
+.btn--icon.btn--large {
+  padding: 1rem;
+  width: 52px;
+  height: 52px;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .btn--outline {
+  color: var(--color-primary-400);
+  border-color: var(--color-primary-400);
+}
+
+[data-theme="dark"] .btn--outline:hover {
+  background: var(--color-primary-500);
+  border-color: var(--color-primary-500);
+}
+
+[data-theme="dark"] .btn--ghost {
+  color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .btn--ghost:hover {
+  background: var(--color-background-tertiary);
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+
+  .btn__ripple::before {
+    transition: none;
+  }
+
+  .btn__spinner-icon {
+    animation: none;
+  }
+}
