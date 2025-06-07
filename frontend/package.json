@@ -1,7 +1,7 @@
 {
   "name": "portfolio-frontend",
   "version": "1.0.0",
-  "description": "Frontend React application for John Doe's Portfolio Website",
+  "description": "Frontend React application for Thomas Musengwa's Portfolio Website",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -27,7 +27,7 @@
   ],
   "author": {
     "name": "Thomas Musengwa",
-    "email": "ThomasMusengwa@gmail.com",
+    "email": "ThomasMusengwa1@gmail.com",
     "url": "https://thomas-musengwa.com"
   },
   "license": "MIT",

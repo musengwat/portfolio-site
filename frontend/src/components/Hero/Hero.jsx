@@ -1,25 +1,25 @@
 // portfolio-frontend/src/components/Hero/Hero.jsx
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { ChevronDown, Github, Linkedin, Mail, Download } from "lucide-react";
-import ParticleBackground from "../UI/ParticleBackground/ParticleBackground";
-import AnimatedText from "../UI/AnimatedText/AnimatedText";
-import Button from "../UI/Button/Button";
-import "./Hero.css";
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { ChevronDown, Github, Linkedin, Mail, Download } from 'lucide-react';
+import ParticleBackground from '../UI/ParticleBackground/ParticleBackground';
+import AnimatedText from '../UI/AnimatedText/AnimatedText';
+import Button from '../UI/Button/Button';
+import './Hero.css';
 
 const Hero = () => {
   const [currentRole, setCurrentRole] = useState(0);
   const roles = [
-    "Full Stack Developer",
-    "React Specialist",
-    "Node.js Expert",
-    "UI/UX Enthusiast",
-    "Problem Solver",
+    'Full Stack Developer',
+    'React Specialist',
+    'Node.js Expert',
+    'UI/UX Enthusiast',
+    'Problem Solver',
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentRole((prev) => (prev + 1) % roles.length);
+      setCurrentRole(prev => (prev + 1) % roles.length);
     }, 3000);
 
     return () => clearInterval(interval);
@@ -43,17 +43,17 @@ const Hero = () => {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   };
 
-  const handleScrollToSection = (sectionId) => {
+  const handleScrollToSection = sectionId => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
+        behavior: 'smooth',
+        block: 'start',
       });
     }
   };
@@ -61,16 +61,16 @@ const Hero = () => {
   const handleDownloadResume = () => {
     // Track download event
     if (window.gtag) {
-      window.gtag("event", "download", {
-        event_category: "engagement",
-        event_label: "resume",
+      window.gtag('event', 'download', {
+        event_category: 'engagement',
+        event_label: 'resume',
       });
     }
 
     // Trigger download
-    const link = document.createElement("a");
-    link.href = "/assets/resume/john-doe-resume.pdf";
-    link.download = "John-Doe-Resume.pdf";
+    const link = document.createElement('a');
+    link.href = '/assets/resume/john-doe-resume.pdf';
+    link.download = 'John-Doe-Resume.pdf';
     link.click();
   };
 
@@ -87,11 +87,11 @@ const Hero = () => {
         <motion.div className="hero__content" variants={itemVariants}>
           <motion.div className="hero__greeting" variants={itemVariants}>
             <span className="hero__wave">👋</span>
-            <span>Hello, I'm</span>
+            <span>Hello, I'm Thomas</span>
           </motion.div>
 
           <motion.h1 className="hero__name" variants={itemVariants}>
-            <AnimatedText text="John Doe" />
+            <AnimatedText text="Thomas Musengwa" />
           </motion.h1>
 
           <motion.div className="hero__role-container" variants={itemVariants}>
@@ -109,16 +109,15 @@ const Hero = () => {
           </motion.div>
 
           <motion.p className="hero__description" variants={itemVariants}>
-            I craft beautiful, responsive web applications with modern
-            technologies. Passionate about creating exceptional user experiences
-            and scalable solutions.
+            I craft beautiful, responsive web applications with modern technologies. Passionate
+            about creating exceptional user experiences and scalable solutions.
           </motion.p>
 
           <motion.div className="hero__cta" variants={itemVariants}>
             <Button
               variant="primary"
               size="large"
-              onClick={() => handleScrollToSection("contact")}
+              onClick={() => handleScrollToSection('contact')}
               className="hero__cta-primary"
             >
               <Mail size={20} />
@@ -156,7 +155,7 @@ const Hero = () => {
               <Linkedin size={24} />
             </a>
             <a
-              href="mailto:john@example.com"
+              href="mailto:ThomasMusengwa1@gmail.com"
               className="hero__social-link"
               aria-label="Send Email"
             >
@@ -174,11 +173,11 @@ const Hero = () => {
           transition={{
             repeat: Infinity,
             duration: 2,
-            ease: "easeInOut",
+            ease: 'easeInOut',
           }}
         >
           <button
-            onClick={() => handleScrollToSection("about")}
+            onClick={() => handleScrollToSection('about')}
             className="hero__scroll-button"
             aria-label="Scroll to About section"
           >
@@ -196,7 +195,7 @@ const Hero = () => {
           <div className="hero__image-container">
             <img
               src="/assets/images/profile-photo.jpg"
-              alt="John Doe - Full Stack Developer"
+              alt="Thomas Musengwa - Full Stack Developer"
               className="hero__profile-image"
               loading="eager"
             />

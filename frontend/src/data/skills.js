@@ -2,269 +2,245 @@
 export const skills = {
   frontend: [
     {
-      name: "React",
+      name: 'React',
       level: 95,
       years: 4,
-      description:
-        "Expert in hooks, context, performance optimization, and advanced patterns",
+      description: 'Expert in hooks, context, performance optimization, and advanced patterns',
     },
     {
-      name: "JavaScript",
+      name: 'JavaScript',
       level: 92,
       years: 5,
-      description:
-        "ES6+, async/await, closures, prototypes, and modern JS features",
+      description: 'ES6+, async/await, closures, prototypes, and modern JS features',
     },
     {
-      name: "TypeScript",
+      name: 'TypeScript',
       level: 88,
       years: 3,
-      description:
-        "Strong typing, interfaces, generics, and advanced type manipulation",
+      description: 'Strong typing, interfaces, generics, and advanced type manipulation',
     },
     {
-      name: "Vue.js",
+      name: 'Vue.js',
       level: 80,
       years: 2,
-      description:
-        "Composition API, Vuex, Vue Router, and component architecture",
+      description: 'Composition API, Vuex, Vue Router, and component architecture',
     },
     {
-      name: "HTML5",
+      name: 'HTML5',
       level: 98,
       years: 5,
-      description:
-        "Semantic markup, accessibility, web standards, and SEO optimization",
+      description: 'Semantic markup, accessibility, web standards, and SEO optimization',
     },
     {
-      name: "CSS3",
+      name: 'CSS3',
       level: 95,
       years: 5,
-      description:
-        "Flexbox, Grid, animations, responsive design, and modern CSS features",
+      description: 'Flexbox, Grid, animations, responsive design, and modern CSS features',
     },
     {
-      name: "Sass",
+      name: 'Sass',
       level: 90,
       years: 4,
-      description:
-        "Mixins, variables, nesting, and maintainable stylesheet architecture",
+      description: 'Mixins, variables, nesting, and maintainable stylesheet architecture',
     },
     {
-      name: "Tailwind CSS",
+      name: 'Tailwind CSS',
       level: 85,
       years: 2,
-      description:
-        "Utility-first approach, custom components, and design systems",
+      description: 'Utility-first approach, custom components, and design systems',
     },
   ],
   backend: [
     {
-      name: "Node.js",
+      name: 'Node.js',
       level: 93,
       years: 4,
-      description:
-        "Express, Koa, microservices, and scalable server-side applications",
+      description: 'Express, Koa, microservices, and scalable server-side applications',
     },
     {
-      name: "Express",
+      name: 'Express',
       level: 90,
       years: 4,
-      description:
-        "RESTful APIs, middleware, authentication, and security best practices",
+      description: 'RESTful APIs, middleware, authentication, and security best practices',
     },
     {
-      name: "Python",
+      name: 'Python',
       level: 87,
       years: 3,
-      description:
-        "Django, Flask, FastAPI, data processing, and automation scripts",
+      description: 'Django, Flask, FastAPI, data processing, and automation scripts',
     },
     {
-      name: "Django",
+      name: 'Django',
       level: 82,
       years: 2,
-      description:
-        "ORM, admin interface, authentication, and full-stack web development",
+      description: 'ORM, admin interface, authentication, and full-stack web development',
     },
     {
-      name: "FastAPI",
+      name: 'FastAPI',
       level: 78,
       years: 1,
-      description: "Modern Python API framework with automatic documentation",
+      description: 'Modern Python API framework with automatic documentation',
     },
     {
-      name: "PHP",
+      name: 'PHP',
       level: 75,
       years: 3,
-      description: "Laravel, Symfony, and legacy system maintenance",
+      description: 'Laravel, Symfony, and legacy system maintenance',
     },
     {
-      name: "Laravel",
+      name: 'Laravel',
       level: 72,
       years: 2,
-      description:
-        "Eloquent ORM, Artisan CLI, and rapid application development",
+      description: 'Eloquent ORM, Artisan CLI, and rapid application development',
     },
     {
-      name: "Java",
+      name: 'Java',
       level: 70,
       years: 2,
-      description:
-        "Spring Boot, Maven, enterprise applications, and design patterns",
+      description: 'Spring Boot, Maven, enterprise applications, and design patterns',
     },
   ],
   database: [
     {
-      name: "MongoDB",
+      name: 'MongoDB',
       level: 88,
       years: 3,
-      description:
-        "Document design, aggregation pipelines, and performance optimization",
+      description: 'Document design, aggregation pipelines, and performance optimization',
     },
     {
-      name: "PostgreSQL",
+      name: 'PostgreSQL',
       level: 85,
       years: 3,
-      description:
-        "Complex queries, indexing, stored procedures, and database design",
+      description: 'Complex queries, indexing, stored procedures, and database design',
     },
     {
-      name: "MySQL",
+      name: 'MySQL',
       level: 82,
       years: 4,
-      description:
-        "Query optimization, replication, and database administration",
+      description: 'Query optimization, replication, and database administration',
     },
     {
-      name: "Redis",
+      name: 'Redis',
       level: 80,
       years: 2,
-      description: "Caching strategies, pub/sub, and session management",
+      description: 'Caching strategies, pub/sub, and session management',
     },
     {
-      name: "Firebase",
+      name: 'Firebase',
       level: 75,
       years: 2,
-      description:
-        "Firestore, Authentication, Cloud Functions, and real-time features",
+      description: 'Firestore, Authentication, Cloud Functions, and real-time features',
     },
   ],
   tools: [
     {
-      name: "Git",
+      name: 'Git',
       level: 95,
       years: 5,
-      description:
-        "Version control, branching strategies, and collaborative workflows",
+      description: 'Version control, branching strategies, and collaborative workflows',
     },
     {
-      name: "Docker",
+      name: 'Docker',
       level: 88,
       years: 3,
-      description:
-        "Containerization, multi-stage builds, and development environments",
+      description: 'Containerization, multi-stage builds, and development environments',
     },
     {
-      name: "AWS",
+      name: 'AWS',
       level: 82,
       years: 2,
-      description: "EC2, S3, Lambda, RDS, and serverless architectures",
+      description: 'EC2, S3, Lambda, RDS, and serverless architectures',
     },
     {
-      name: "Kubernetes",
+      name: 'Kubernetes',
       level: 75,
       years: 1,
-      description:
-        "Container orchestration, deployments, and cluster management",
+      description: 'Container orchestration, deployments, and cluster management',
     },
     {
-      name: "Linux",
+      name: 'Linux',
       level: 85,
       years: 4,
-      description:
-        "Server administration, shell scripting, and system optimization",
+      description: 'Server administration, shell scripting, and system optimization',
     },
     {
-      name: "Nginx",
+      name: 'Nginx',
       level: 78,
       years: 2,
-      description:
-        "Reverse proxy, load balancing, and web server configuration",
+      description: 'Reverse proxy, load balancing, and web server configuration',
     },
   ],
 };
 
 export const personalInfo = {
-  name: "John Doe",
-  title: "Full Stack Developer",
-  email: "john@example.com",
-  phone: "+1 (555) 123-4567",
-  location: "San Francisco, CA",
-  website: "https://johndoe.dev",
-  linkedin: "https://linkedin.com/in/johndoe",
-  github: "https://github.com/johndoe",
-  twitter: "https://twitter.com/johndoe",
-  experience: "5+",
-  availability: "Available for hire",
-  timezone: "PST (UTC-8)",
-  languages: ["English (Native)", "Spanish (Conversational)", "French (Basic)"],
+  name: 'Thomas Musengwa',
+  title: 'Full Stack Developer',
+  email: 'ThomasMusengwa1@gmail.com',
+  phone: '+1 (479) 367-1647',
+  location: 'Fayetteville, Arkansas',
+  website: 'https://thomasmusengwa.dev',
+  linkedin: 'https://www.linkedin.com/in/thomas-m-22299913a/',
+  github: 'https://github.com/musengwat',
+  experience: '8+',
+  availability: 'Available for hire',
+  timezone: 'CST (UTC-6)',
+  languages: ['English (Native)'],
 
   // Certifications
   certifications: [
     {
-      name: "AWS Certified Developer",
-      issuer: "Amazon Web Services",
-      date: "2023",
-      credential: "https://aws.amazon.com/verification",
+      name: 'AWS Certified Developer',
+      issuer: 'Amazon Web Services',
+      date: '2023',
+      credential: 'https://aws.amazon.com/verification',
     },
     {
-      name: "React Developer Certification",
-      issuer: "Meta",
-      date: "2022",
-      credential: "https://coursera.org/verify/certificate",
+      name: 'React Developer Certification',
+      issuer: 'Meta',
+      date: '2022',
+      credential: 'https://coursera.org/verify/certificate',
     },
     {
-      name: "Google Cloud Professional",
-      issuer: "Google Cloud",
-      date: "2023",
-      credential: "https://cloud.google.com/certification",
+      name: 'Google Cloud Professional',
+      issuer: 'Google Cloud',
+      date: '2023',
+      credential: 'https://cloud.google.com/certification',
     },
   ],
 
   // Education
   education: [
     {
-      degree: "Bachelor of Science in Computer Science",
-      school: "University of California, Berkeley",
-      year: "2019",
-      gpa: "3.8/4.0",
-      honors: ["Magna Cum Laude", "Dean's List"],
+      degree: 'Bachelor of Science in Computer Science',
+      school: 'University of California, Berkeley',
+      year: '2019',
+      gpa: '3.8/4.0',
+      honors: ['Magna Cum Laude', "Dean's List"],
     },
     {
-      degree: "Full Stack Web Development Bootcamp",
-      school: "General Assembly",
-      year: "2018",
-      duration: "6 months intensive",
-      focus: "Modern web technologies and agile development",
+      degree: 'Full Stack Web Development Bootcamp',
+      school: 'General Assembly',
+      year: '2018',
+      duration: '6 months intensive',
+      focus: 'Modern web technologies and agile development',
     },
   ],
 
   // Interests & Hobbies
   interests: [
-    "Open Source Contributions",
-    "Technology Blogging",
-    "Mentoring Developers",
-    "Rock Climbing",
-    "Photography",
-    "Travel & Culture",
+    'Open Source Contributions',
+    'Technology Blogging',
+    'Mentoring Developers',
+    'Rock Climbing',
+    'Photography',
+    'Travel & Culture',
   ],
 
   // Work preferences
   workPreferences: {
     remoteWork: true,
-    relocation: false,
-    travel: "Occasional",
+    relocation: true,
+    travel: 'Occasional',
     contractWork: true,
     fullTime: true,
     partTime: false,
@@ -273,28 +249,22 @@ export const personalInfo = {
   // Social links with icons
   socialLinks: [
     {
-      platform: "GitHub",
-      url: "https://github.com/johndoe",
-      icon: "github",
-      username: "@johndoe",
+      platform: 'GitHub',
+      url: personalInfo.github,
+      icon: 'github',
+      username: '@musengwat',
     },
     {
-      platform: "LinkedIn",
-      url: "https://linkedin.com/in/johndoe",
-      icon: "linkedin",
-      username: "johndoe",
+      platform: 'LinkedIn',
+      url: personalInfo.linkedin,
+      icon: 'linkedin',
+      username: '@thomas-m-22299913a',
     },
     {
-      platform: "Twitter",
-      url: "https://twitter.com/johndoe",
-      icon: "twitter",
-      username: "@johndoe",
-    },
-    {
-      platform: "Instagram",
-      url: "https://instagram.com/johndoe",
-      icon: "instagram",
-      username: "@johndoe",
+      platform: 'Instagram',
+      url: 'https://instagram.com/react1237',
+      icon: 'instagram',
+      username: '@react1237',
     },
   ],
 };
@@ -302,48 +272,48 @@ export const personalInfo = {
 // Skill categories with metadata
 export const skillCategories = [
   {
-    id: "frontend",
-    name: "Frontend",
-    description: "User interface and client-side technologies",
-    icon: "💻",
-    color: "#3b82f6",
+    id: 'frontend',
+    name: 'Frontend',
+    description: 'User interface and client-side technologies',
+    icon: '💻',
+    color: '#3b82f6',
   },
   {
-    id: "backend",
-    name: "Backend",
-    description: "Server-side development and APIs",
-    icon: "⚙️",
-    color: "#10b981",
+    id: 'backend',
+    name: 'Backend',
+    description: 'Server-side development and APIs',
+    icon: '⚙️',
+    color: '#10b981',
   },
   {
-    id: "database",
-    name: "Database",
-    description: "Data storage and management systems",
-    icon: "🗄️",
-    color: "#f59e0b",
+    id: 'database',
+    name: 'Database',
+    description: 'Data storage and management systems',
+    icon: '🗄️',
+    color: '#f59e0b',
   },
   {
-    id: "tools",
-    name: "Tools & DevOps",
-    description: "Development tools and deployment",
-    icon: "🛠️",
-    color: "#8b5cf6",
+    id: 'tools',
+    name: 'Tools & DevOps',
+    description: 'Development tools and deployment',
+    icon: '🛠️',
+    color: '#8b5cf6',
   },
 ];
 
 // Get skills by proficiency level
-export const getSkillsByLevel = (level) => {
+export const getSkillsByLevel = level => {
   const allSkills = Object.values(skills).flat();
 
   switch (level) {
-    case "expert":
-      return allSkills.filter((skill) => skill.level >= 90);
-    case "advanced":
-      return allSkills.filter((skill) => skill.level >= 75 && skill.level < 90);
-    case "intermediate":
-      return allSkills.filter((skill) => skill.level >= 60 && skill.level < 75);
-    case "beginner":
-      return allSkills.filter((skill) => skill.level < 60);
+    case 'expert':
+      return allSkills.filter(skill => skill.level >= 90);
+    case 'advanced':
+      return allSkills.filter(skill => skill.level >= 75 && skill.level < 90);
+    case 'intermediate':
+      return allSkills.filter(skill => skill.level >= 60 && skill.level < 75);
+    case 'beginner':
+      return allSkills.filter(skill => skill.level < 60);
     default:
       return allSkills;
   }
@@ -356,12 +326,10 @@ export const getTopSkills = (count = 10) => {
 };
 
 // Get skills by technology/framework
-export const getSkillsByTechnology = (technologies) => {
+export const getSkillsByTechnology = technologies => {
   const allSkills = Object.values(skills).flat();
-  return allSkills.filter((skill) =>
-    technologies.some((tech) =>
-      skill.name.toLowerCase().includes(tech.toLowerCase())
-    )
+  return allSkills.filter(skill =>
+    technologies.some(tech => skill.name.toLowerCase().includes(tech.toLowerCase()))
   );
 };
 

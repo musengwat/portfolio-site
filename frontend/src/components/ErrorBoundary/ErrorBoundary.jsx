@@ -147,11 +147,11 @@ class ErrorBoundary extends React.Component {
                   If this problem persists, please contact me directly:
                 </p>
                 <a
-                  href="mailto:john@example.com?subject=Website Error - ID: {this.state.errorId}"
+                  href="mailto:ThomasMusengwa1@gmail.com?subject=Website Error - ID: {this.state.errorId}"
                   className="error-boundary__contact-link"
                 >
                   <Mail size={16} />
-                  john@example.com
+                  ThomasMusengwa1@gmail.com
                 </a>
               </div>
 

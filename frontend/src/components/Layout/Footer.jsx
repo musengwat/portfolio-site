@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="footer__social">
           <SocialLinks variant="secondary" size="small" />
         </div>
-        <p className="footer__copyright">© {currentYear} John Doe. All rights reserved.</p>
+        <p className="footer__copyright">© {currentYear} Thomas Musengwa. All rights reserved.</p>
       </div>
     </footer>
   );

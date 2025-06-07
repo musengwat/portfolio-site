@@ -1,10 +1,10 @@
 // portfolio-frontend/src/components/About/About.jsx
-import React from "react";
-import { motion } from "framer-motion";
-import { Code2, Database, Palette, Zap, Users, Target } from "lucide-react";
-import SkillsChart from "./SkillsChart";
-import { skills, personalInfo } from "../../data/skills";
-import "./About.css";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Code2, Database, Palette, Zap, Users, Target } from 'lucide-react';
+import SkillsChart from './SkillsChart';
+import { skills, personalInfo } from '../../data/skills';
+import './About.css';
 
 const About = () => {
   const containerVariants = {
@@ -25,7 +25,7 @@ const About = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   };
@@ -33,33 +33,31 @@ const About = () => {
   const stats = [
     {
       icon: Code2,
-      label: "Projects Completed",
-      value: "50+",
-      color: "primary",
+      label: 'Projects Completed',
+      value: '50+',
+      color: 'primary',
     },
-    { icon: Users, label: "Happy Clients", value: "25+", color: "secondary" },
-    { icon: Zap, label: "Years Experience", value: "5+", color: "accent" },
-    { icon: Target, label: "Success Rate", value: "98%", color: "success" },
+    { icon: Users, label: 'Happy Clients', value: '25+', color: 'secondary' },
+    { icon: Zap, label: 'Years Experience', value: '5+', color: 'accent' },
+    { icon: Target, label: 'Success Rate', value: '98%', color: 'success' },
   ];
 
   const highlights = [
     {
       icon: Code2,
-      title: "Full Stack Development",
+      title: 'Full Stack Development',
       description:
-        "Expert in modern web technologies including React, Node.js, and cloud platforms.",
+        'Expert in modern web technologies including React, Node.js, and cloud platforms.',
     },
     {
       icon: Database,
-      title: "Database Design",
-      description:
-        "Proficient in SQL and NoSQL databases, optimization, and data architecture.",
+      title: 'Database Design',
+      description: 'Proficient in SQL and NoSQL databases, optimization, and data architecture.',
     },
     {
       icon: Palette,
-      title: "UI/UX Design",
-      description:
-        "Creating beautiful, intuitive interfaces with focus on user experience.",
+      title: 'UI/UX Design',
+      description: 'Creating beautiful, intuitive interfaces with focus on user experience.',
     },
   ];
 
@@ -88,7 +86,7 @@ const About = () => {
               <div className="about__image-container">
                 <img
                   src="/assets/images/about-photo.jpg"
-                  alt="John Doe working"
+                  alt="Thomas Musengwa working"
                   className="about__image"
                 />
                 <div className="about__image-overlay">
@@ -100,33 +98,27 @@ const About = () => {
               </div>
 
               <div className="about__bio">
-                <h3 className="about__bio-title">Hello! I'm John Doe</h3>
+                <h3 className="about__bio-title">Hello! I'm Thomas Musengwa</h3>
                 <p className="about__bio-text">
-                  I'm a passionate full-stack developer with{" "}
-                  {personalInfo.experience} years of experience creating digital
-                  solutions that drive business growth. I specialize in modern
-                  web technologies and love turning complex problems into
-                  simple, beautiful designs.
+                  I'm a passionate full-stack developer with {personalInfo.experience} years of
+                  experience creating digital solutions that drive business growth. I specialize in
+                  modern web technologies and love turning complex problems into simple, beautiful
+                  designs.
                 </p>
                 <p className="about__bio-text">
-                  When I'm not coding, you'll find me exploring new
-                  technologies, contributing to open-source projects, or
-                  mentoring fellow developers. I believe in writing clean,
+                  When I'm not coding, you'll find me exploring new technologies, contributing to
+                  open-source projects, or mentoring fellow developers. I believe in writing clean,
                   maintainable code and creating applications that users love.
                 </p>
 
                 <div className="about__bio-details">
                   <div className="about__detail">
                     <span className="about__detail-label">Location:</span>
-                    <span className="about__detail-value">
-                      {personalInfo.location}
-                    </span>
+                    <span className="about__detail-value">{personalInfo.location}</span>
                   </div>
                   <div className="about__detail">
                     <span className="about__detail-label">Email:</span>
-                    <span className="about__detail-value">
-                      {personalInfo.email}
-                    </span>
+                    <span className="about__detail-value">{personalInfo.email}</span>
                   </div>
                   <div className="about__detail">
                     <span className="about__detail-label">Status:</span>
@@ -192,12 +184,8 @@ const About = () => {
                     <div className="about__highlight-icon">
                       <IconComponent size={24} />
                     </div>
-                    <h4 className="about__highlight-title">
-                      {highlight.title}
-                    </h4>
-                    <p className="about__highlight-description">
-                      {highlight.description}
-                    </p>
+                    <h4 className="about__highlight-title">{highlight.title}</h4>
+                    <p className="about__highlight-description">{highlight.description}</p>
                   </motion.div>
                 );
               })}
@@ -208,13 +196,10 @@ const About = () => {
           <motion.div className="about__philosophy" variants={itemVariants}>
             <div className="about__philosophy-content">
               <blockquote className="about__quote">
-                "Code is not just about solving problems—it's about creating
-                possibilities. Every line of code is an opportunity to make
-                someone's life a little bit better."
+                "Code is not just about solving problems—it's about creating possibilities. Every
+                line of code is an opportunity to make someone's life a little bit better."
               </blockquote>
-              <cite className="about__quote-author">
-                — My Development Philosophy
-              </cite>
+              <cite className="about__quote-author">— My Development Philosophy</cite>
             </div>
           </motion.div>
         </motion.div>

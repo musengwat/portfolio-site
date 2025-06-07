@@ -26,7 +26,7 @@ const Home = () => {
     trackPageView('home');
 
     // Update document title
-    document.title = 'John Doe - Full Stack Developer Portfolio';
+    document.title = 'Thomas Musengwa - Full Stack Developer Portfolio';
 
     // Update meta description
     const metaDescription = document.querySelector('meta[name="description"]');
