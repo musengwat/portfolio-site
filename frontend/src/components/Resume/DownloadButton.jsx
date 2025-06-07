@@ -1,17 +1,14 @@
 // portfolio-frontend/src/components/Resume/DownloadButton.jsx
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Download, FileText, CheckCircle } from "lucide-react";
-import Button from "../UI/Button/Button";
-import { trackDownload } from "../../services/analytics";
-import { api } from "../../services/api";
-import "./DownloadButton.css";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Download, FileText, CheckCircle } from 'lucide-react';
+import Button from '../UI/Button/Button';
+import './DownloadButton.css';
+import { trackDownload } from '../../services/analytics';
+import { api } from '../../services/api';
+import './DownloadButton.css';
 
-const DownloadButton = ({
-  variant = "primary",
-  size = "medium",
-  className = "",
-}) => {
+const DownloadButton = ({ variant = 'primary', size = 'medium', className = '' }) => {
   const [isDownloading, setIsDownloading] = useState(false);
   const [downloadSuccess, setDownloadSuccess] = useState(false);
 
@@ -22,19 +19,19 @@ const DownloadButton = ({
 
     try {
       // Track download attempt
-      trackDownload("john-doe-resume.pdf", "pdf");
+      trackDownload('john-doe-resume.pdf', 'pdf');
 
       // Track download on backend
       await api.trackResumeDownload();
 
       // Simulate download process (in real app, you'd fetch the actual file)
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
       // Create download link
-      const link = document.createElement("a");
-      link.href = "/assets/resume/john-doe-resume.pdf";
-      link.download = "John-Doe-Resume.pdf";
-      link.target = "_blank";
+      const link = document.createElement('a');
+      link.href = '/assets/resume/john-doe-resume.pdf';
+      link.download = 'John-Doe-Resume.pdf';
+      link.target = '_blank';
 
       // Trigger download
       document.body.appendChild(link);
@@ -49,7 +46,7 @@ const DownloadButton = ({
         setDownloadSuccess(false);
       }, 3000);
     } catch (error) {
-      console.error("Download failed:", error);
+      console.error('Download failed:', error);
       // You could show an error message here
     } finally {
       setIsDownloading(false);
@@ -63,14 +60,14 @@ const DownloadButton = ({
       transition: {
         duration: 0.6,
         repeat: Infinity,
-        ease: "easeInOut",
+        ease: 'easeInOut',
       },
     },
     success: {
       scale: [1, 1.05, 1],
       transition: {
         duration: 0.4,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   };
@@ -82,29 +79,29 @@ const DownloadButton = ({
       transition: {
         duration: 1,
         repeat: Infinity,
-        ease: "linear",
+        ease: 'linear',
       },
     },
     success: {
       scale: [1, 1.2, 1],
       transition: {
         duration: 0.4,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   };
 
   const getButtonState = () => {
-    if (downloadSuccess) return "success";
-    if (isDownloading) return "downloading";
-    return "idle";
+    if (downloadSuccess) return 'success';
+    if (isDownloading) return 'downloading';
+    return 'idle';
   };
 
   const getButtonContent = () => {
     const state = getButtonState();
 
     switch (state) {
-      case "downloading":
+      case 'downloading':
         return (
           <>
             <motion.div variants={iconVariants}>
@@ -113,7 +110,7 @@ const DownloadButton = ({
             Downloading...
           </>
         );
-      case "success":
+      case 'success':
         return (
           <>
             <motion.div variants={iconVariants}>
@@ -139,7 +136,7 @@ const DownloadButton = ({
       animate={getButtonState()}
     >
       <Button
-        variant={downloadSuccess ? "success" : variant}
+        variant={downloadSuccess ? 'success' : variant}
         size={size}
         onClick={handleDownload}
         disabled={isDownloading}
@@ -154,9 +151,7 @@ const DownloadButton = ({
           <FileText size={16} />
           <div className="download-button__tooltip-text">
             <span className="download-button__tooltip-title">Resume PDF</span>
-            <span className="download-button__tooltip-subtitle">
-              Latest version • 245KB
-            </span>
+            <span className="download-button__tooltip-subtitle">Latest version • 245KB</span>
           </div>
         </div>
       </div>

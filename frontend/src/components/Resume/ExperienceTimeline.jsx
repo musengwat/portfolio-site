@@ -1,6 +1,7 @@
 // portfolio-frontend/src/components/Resume/ExperienceTimeline.jsx
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import './ExperienceTimeline.css';
 import {
   Calendar,
   MapPin,
@@ -12,25 +13,25 @@ import {
   Target,
   CheckCircle,
   Code,
-} from "lucide-react";
-import "./ExperienceTimeline.css";
+} from 'lucide-react';
+import './ExperienceTimeline.css';
 
-const ExperienceTimeline = ({ data, type = "experience" }) => {
+const ExperienceTimeline = ({ data, type = 'experience' }) => {
   const [expandedItems, setExpandedItems] = useState({});
 
-  const toggleExpanded = (id) => {
-    setExpandedItems((prev) => ({
+  const toggleExpanded = id => {
+    setExpandedItems(prev => ({
       ...prev,
       [id]: !prev[id],
     }));
   };
 
-  const formatDate = (dateString) => {
-    if (!dateString) return "Present";
+  const formatDate = dateString => {
+    if (!dateString) return 'Present';
     const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
     });
   };
 
@@ -44,11 +45,11 @@ const ExperienceTimeline = ({ data, type = "experience" }) => {
     const months = diffMonths % 12;
 
     if (years === 0) {
-      return `${months} month${months !== 1 ? "s" : ""}`;
+      return `${months} month${months !== 1 ? 's' : ''}`;
     } else if (months === 0) {
-      return `${years} year${years !== 1 ? "s" : ""}`;
+      return `${years} year${years !== 1 ? 's' : ''}`;
     } else {
-      return `${years} year${years !== 1 ? "s" : ""}, ${months} month${months !== 1 ? "s" : ""}`;
+      return `${years} year${years !== 1 ? 's' : ''}, ${months} month${months !== 1 ? 's' : ''}`;
     }
   };
 
@@ -69,24 +70,24 @@ const ExperienceTimeline = ({ data, type = "experience" }) => {
       x: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   };
 
-  const getTypeIcon = (itemType) => {
+  const getTypeIcon = itemType => {
     switch (itemType) {
-      case "degree":
+      case 'degree':
         return <Award size={20} />;
-      case "bootcamp":
+      case 'bootcamp':
         return <Code size={20} />;
       default:
         return <Building size={20} />;
     }
   };
 
-  const getStatusColor = (endDate) => {
-    return endDate ? "completed" : "current";
+  const getStatusColor = endDate => {
+    return endDate ? 'completed' : 'current';
   };
 
   return (
@@ -112,14 +113,8 @@ const ExperienceTimeline = ({ data, type = "experience" }) => {
               {!isLast && <div className="experience-timeline__line" />}
 
               {/* Timeline Dot */}
-              <div
-                className={`experience-timeline__dot experience-timeline__dot--${statusColor}`}
-              >
-                {type === "education" ? (
-                  getTypeIcon(item.type)
-                ) : (
-                  <Building size={20} />
-                )}
+              <div className={`experience-timeline__dot experience-timeline__dot--${statusColor}`}>
+                {type === 'education' ? getTypeIcon(item.type) : <Building size={20} />}
               </div>
 
               {/* Content */}
@@ -129,9 +124,7 @@ const ExperienceTimeline = ({ data, type = "experience" }) => {
                   <div className="experience-timeline__main-info">
                     <h3 className="experience-timeline__title">{item.title}</h3>
                     <div className="experience-timeline__company">
-                      <span className="experience-timeline__company-name">
-                        {item.company}
-                      </span>
+                      <span className="experience-timeline__company-name">{item.company}</span>
                       {item.companyInfo?.website && (
                         <a
                           href={item.companyInfo.website}
@@ -151,8 +144,7 @@ const ExperienceTimeline = ({ data, type = "experience" }) => {
                       <div className="experience-timeline__date">
                         <Calendar size={14} />
                         <span>
-                          {formatDate(item.startDate)} -{" "}
-                          {formatDate(item.endDate)}
+                          {formatDate(item.startDate)} - {formatDate(item.endDate)}
                         </span>
                       </div>
                       <div className="experience-timeline__location">
@@ -168,21 +160,17 @@ const ExperienceTimeline = ({ data, type = "experience" }) => {
                 </div>
 
                 {/* Status Badge */}
-                {statusColor === "current" && (
+                {statusColor === 'current' && (
                   <div className="experience-timeline__status">
-                    <span className="experience-timeline__status-badge">
-                      Current Position
-                    </span>
+                    <span className="experience-timeline__status-badge">Current Position</span>
                   </div>
                 )}
 
                 {/* Description */}
-                <p className="experience-timeline__description">
-                  {item.description}
-                </p>
+                <p className="experience-timeline__description">{item.description}</p>
 
                 {/* Education Specific Info */}
-                {type === "education" && (
+                {type === 'education' && (
                   <div className="experience-timeline__education-info">
                     {item.gpa && (
                       <div className="experience-timeline__gpa">
@@ -191,7 +179,7 @@ const ExperienceTimeline = ({ data, type = "experience" }) => {
                     )}
                     {item.honors && item.honors.length > 0 && (
                       <div className="experience-timeline__honors">
-                        <strong>Honors:</strong> {item.honors.join(", ")}
+                        <strong>Honors:</strong> {item.honors.join(', ')}
                       </div>
                     )}
                   </div>
@@ -214,22 +202,14 @@ const ExperienceTimeline = ({ data, type = "experience" }) => {
                 )}
 
                 {/* Expand/Collapse Button */}
-                {(item.achievements ||
-                  item.responsibilities ||
-                  item.relevantCoursework) && (
+                {(item.achievements || item.responsibilities || item.relevantCoursework) && (
                   <button
                     className="experience-timeline__toggle"
                     onClick={() => toggleExpanded(item.id)}
                     aria-expanded={isExpanded}
                   >
-                    <span>
-                      {isExpanded ? "Show Less" : "Show More Details"}
-                    </span>
-                    {isExpanded ? (
-                      <ChevronUp size={16} />
-                    ) : (
-                      <ChevronDown size={16} />
-                    )}
+                    <span>{isExpanded ? 'Show Less' : 'Show More Details'}</span>
+                    {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                   </button>
                 )}
 
@@ -239,7 +219,7 @@ const ExperienceTimeline = ({ data, type = "experience" }) => {
                     <motion.div
                       className="experience-timeline__details"
                       initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
+                      animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
                     >
@@ -252,10 +232,7 @@ const ExperienceTimeline = ({ data, type = "experience" }) => {
                           </h4>
                           <ul className="experience-timeline__list">
                             {item.achievements.map((achievement, index) => (
-                              <li
-                                key={index}
-                                className="experience-timeline__list-item"
-                              >
+                              <li key={index} className="experience-timeline__list-item">
                                 <CheckCircle size={14} />
                                 {achievement}
                               </li>
@@ -272,16 +249,11 @@ const ExperienceTimeline = ({ data, type = "experience" }) => {
                             Responsibilities
                           </h4>
                           <ul className="experience-timeline__list">
-                            {item.responsibilities.map(
-                              (responsibility, index) => (
-                                <li
-                                  key={index}
-                                  className="experience-timeline__list-item"
-                                >
-                                  {responsibility}
-                                </li>
-                              )
-                            )}
+                            {item.responsibilities.map((responsibility, index) => (
+                              <li key={index} className="experience-timeline__list-item">
+                                {responsibility}
+                              </li>
+                            ))}
                           </ul>
                         </div>
                       )}
@@ -295,10 +267,7 @@ const ExperienceTimeline = ({ data, type = "experience" }) => {
                           </h4>
                           <div className="experience-timeline__coursework">
                             {item.relevantCoursework.map((course, index) => (
-                              <span
-                                key={index}
-                                className="experience-timeline__course"
-                              >
+                              <span key={index} className="experience-timeline__course">
                                 {course}
                               </span>
                             ))}
@@ -315,10 +284,7 @@ const ExperienceTimeline = ({ data, type = "experience" }) => {
                           </h4>
                           <ul className="experience-timeline__list">
                             {item.projects.map((project, index) => (
-                              <li
-                                key={index}
-                                className="experience-timeline__list-item"
-                              >
+                              <li key={index} className="experience-timeline__list-item">
                                 {project}
                               </li>
                             ))}
@@ -330,8 +296,7 @@ const ExperienceTimeline = ({ data, type = "experience" }) => {
                       {item.companyInfo && (
                         <div className="experience-timeline__company-info">
                           <div className="experience-timeline__company-detail">
-                            <strong>Industry:</strong>{" "}
-                            {item.companyInfo.industry}
+                            <strong>Industry:</strong> {item.companyInfo.industry}
                           </div>
                           <div className="experience-timeline__company-detail">
                             <strong>Size:</strong> {item.companyInfo.size}

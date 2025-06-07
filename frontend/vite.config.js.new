@@ -4,7 +4,9 @@ import react from '@vitejs/plugin-react';
 import autoprefixer from 'autoprefixer';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+  ],
 
   // Development server configuration
   server: {
@@ -38,7 +40,7 @@ export default defineConfig({
           utils: ['axios', 'date-fns', 'lodash'],
         },
         // Asset file naming
-        assetFileNames: assetInfo => {
+        assetFileNames: (assetInfo) => {
           const info = assetInfo.name.split('.');
           const ext = info[info.length - 1];
           if (/\.(png|jpe?g|svg|gif|tiff|bmp|ico)$/i.test(assetInfo.name)) {

@@ -1,25 +1,19 @@
 // portfolio-frontend/src/components/Portfolio/Portfolio.jsx
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Search, Filter, Grid, List } from "lucide-react";
-import ProjectCard from "./ProjectCard";
-import ProjectModal from "./ProjectModal";
-import FilterTabs from "./FilterTabs";
-import {
-  projects,
-  categories,
-  getProjectsByCategory,
-} from "../../data/projects";
-import { useApp } from "../../context/AppContext";
-import "./Portfolio.css";
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Search, Filter, Grid, List } from 'lucide-react';
+import ProjectCard from './ProjectCard';
+import FilterTabs from './FilterTabs';
+import { projects, categories, getProjectsByCategory } from '../../data/projects';
+import { useApp } from '../../context/AppContext';
+import './Portfolio.css';
 
 const Portfolio = () => {
   const { state, setPortfolioFilter } = useApp();
   const [filteredProjects, setFilteredProjects] = useState(projects);
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [viewMode, setViewMode] = useState("grid"); // 'grid' or 'list'
-  const [sortBy, setSortBy] = useState("recent"); // 'recent', 'name', 'featured'
+  const [searchTerm, setSearchTerm] = useState('');
+  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
+  const [sortBy, setSortBy] = useState('recent'); // 'recent', 'name', 'featured'
 
   const selectedFilter = state.portfolio.selectedFilter;
 
@@ -29,30 +23,26 @@ const Portfolio = () => {
     // Apply search filter
     if (searchTerm) {
       filtered = filtered.filter(
-        (project) =>
+        project =>
           project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          project.description
-            .toLowerCase()
-            .includes(searchTerm.toLowerCase()) ||
-          project.technologies.some((tech) =>
-            tech.toLowerCase().includes(searchTerm.toLowerCase())
-          )
+          project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          project.technologies.some(tech => tech.toLowerCase().includes(searchTerm.toLowerCase()))
       );
     }
 
     // Apply sorting
     switch (sortBy) {
-      case "name":
+      case 'name':
         filtered = [...filtered].sort((a, b) => a.title.localeCompare(b.title));
         break;
-      case "featured":
+      case 'featured':
         filtered = [...filtered].sort((a, b) => {
           if (a.featured && !b.featured) return -1;
           if (!a.featured && b.featured) return 1;
           return 0;
         });
         break;
-      case "recent":
+      case 'recent':
       default:
         filtered = [...filtered].sort((a, b) => {
           const dateA = new Date(a.endDate || a.startDate);
@@ -64,19 +54,8 @@ const Portfolio = () => {
 
     setFilteredProjects(filtered);
   }, [selectedFilter, searchTerm, sortBy]);
-
-  const handleFilterChange = (filter) => {
+  const handleFilterChange = filter => {
     setPortfolioFilter(filter);
-  };
-
-  const handleProjectClick = (project) => {
-    setSelectedProject(project);
-    document.body.style.overflow = "hidden";
-  };
-
-  const handleCloseModal = () => {
-    setSelectedProject(null);
-    document.body.style.overflow = "auto";
   };
 
   const containerVariants = {
@@ -97,7 +76,7 @@ const Portfolio = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   };
@@ -116,8 +95,7 @@ const Portfolio = () => {
           <motion.div className="portfolio__header" variants={itemVariants}>
             <h2 className="portfolio__title">My Portfolio</h2>
             <p className="portfolio__subtitle">
-              A collection of projects that showcase my skills and passion for
-              development
+              A collection of projects that showcase my skills and passion for development
             </p>
           </motion.div>
 
@@ -131,7 +109,7 @@ const Portfolio = () => {
                   type="text"
                   placeholder="Search projects, technologies..."
                   value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onChange={e => setSearchTerm(e.target.value)}
                   className="portfolio__search-input"
                 />
               </div>
@@ -139,7 +117,7 @@ const Portfolio = () => {
               <div className="portfolio__sort">
                 <select
                   value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
+                  onChange={e => setSortBy(e.target.value)}
                   className="portfolio__sort-select"
                 >
                   <option value="recent">Most Recent</option>
@@ -150,15 +128,15 @@ const Portfolio = () => {
 
               <div className="portfolio__view-mode">
                 <button
-                  className={`portfolio__view-btn ${viewMode === "grid" ? "portfolio__view-btn--active" : ""}`}
-                  onClick={() => setViewMode("grid")}
+                  className={`portfolio__view-btn ${viewMode === 'grid' ? 'portfolio__view-btn--active' : ''}`}
+                  onClick={() => setViewMode('grid')}
                   aria-label="Grid view"
                 >
                   <Grid size={20} />
                 </button>
                 <button
-                  className={`portfolio__view-btn ${viewMode === "list" ? "portfolio__view-btn--active" : ""}`}
-                  onClick={() => setViewMode("list")}
+                  className={`portfolio__view-btn ${viewMode === 'list' ? 'portfolio__view-btn--active' : ''}`}
+                  onClick={() => setViewMode('list')}
                   aria-label="List view"
                 >
                   <List size={20} />
@@ -175,18 +153,10 @@ const Portfolio = () => {
           </motion.div>
 
           {/* Results Info */}
-          <motion.div
-            className="portfolio__results-info"
-            variants={itemVariants}
-          >
+          <motion.div className="portfolio__results-info" variants={itemVariants}>
             <p className="portfolio__results-text">
               Showing {filteredProjects.length} of {projects.length} projects
-              {searchTerm && (
-                <span className="portfolio__search-term">
-                  {" "}
-                  for "{searchTerm}"
-                </span>
-              )}
+              {searchTerm && <span className="portfolio__search-term"> for "{searchTerm}"</span>}
             </p>
 
             {filteredProjects.length === 0 && searchTerm && (
@@ -203,6 +173,7 @@ const Portfolio = () => {
             layout
           >
             <AnimatePresence>
+              {' '}
               {filteredProjects.map((project, index) => (
                 <motion.div
                   key={project.id}
@@ -212,13 +183,8 @@ const Portfolio = () => {
                   exit="hidden"
                   layout
                   transition={{ duration: 0.3 }}
-                  onClick={() => handleProjectClick(project)}
                 >
-                  <ProjectCard
-                    project={project}
-                    viewMode={viewMode}
-                    index={index}
-                  />
+                  <ProjectCard project={project} viewMode={viewMode} index={index} />
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -226,31 +192,23 @@ const Portfolio = () => {
 
           {/* Load More Button */}
           {filteredProjects.length >= 6 && (
-            <motion.div
-              className="portfolio__load-more"
-              variants={itemVariants}
-            >
-              <button className="portfolio__load-more-btn">
-                Load More Projects
-              </button>
+            <motion.div className="portfolio__load-more" variants={itemVariants}>
+              <button className="portfolio__load-more-btn">Load More Projects</button>
             </motion.div>
           )}
 
           {/* Featured Projects CTA */}
           <motion.div className="portfolio__cta" variants={itemVariants}>
             <div className="portfolio__cta-content">
-              <h3 className="portfolio__cta-title">
-                Interested in working together?
-              </h3>
+              <h3 className="portfolio__cta-title">Interested in working together?</h3>
               <p className="portfolio__cta-description">
-                I'm always open to discussing new opportunities and exciting
-                projects.
+                I'm always open to discussing new opportunities and exciting projects.
               </p>
               <button
                 className="portfolio__cta-button"
                 onClick={() => {
-                  document.getElementById("contact")?.scrollIntoView({
-                    behavior: "smooth",
+                  document.getElementById('contact')?.scrollIntoView({
+                    behavior: 'smooth',
                   });
                 }}
               >
@@ -258,15 +216,8 @@ const Portfolio = () => {
               </button>
             </div>
           </motion.div>
-        </motion.div>
+        </motion.div>{' '}
       </div>
-
-      {/* Project Modal */}
-      <AnimatePresence>
-        {selectedProject && (
-          <ProjectModal project={selectedProject} onClose={handleCloseModal} />
-        )}
-      </AnimatePresence>
     </section>
   );
 };

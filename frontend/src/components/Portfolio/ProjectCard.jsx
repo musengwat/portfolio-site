@@ -1,13 +1,15 @@
 // portfolio-frontend/src/components/Portfolio/ProjectCard.jsx
-import React from "react";
-import { motion } from "framer-motion";
-import { ExternalLink, Github, Calendar, Star, Eye } from "lucide-react";
-import "./ProjectCard.css";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ExternalLink, Github, Calendar, Star, Eye } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import './ProjectCard.css';
 
-const ProjectCard = ({ project, viewMode = "grid", index = 0 }) => {
+const ProjectCard = ({ project, viewMode = 'grid', index = 0 }) => {
+  const navigate = useNavigate();
   const handleExternalClick = (e, url) => {
     e.stopPropagation();
-    window.open(url, "_blank", "noopener,noreferrer");
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   const cardVariants = {
@@ -22,25 +24,25 @@ const ProjectCard = ({ project, viewMode = "grid", index = 0 }) => {
     },
   };
 
-  const getStatusColor = (status) => {
+  const getStatusColor = status => {
     switch (status) {
-      case "completed":
-        return "success";
-      case "in-progress":
-        return "warning";
-      case "planning":
-        return "info";
+      case 'completed':
+        return 'success';
+      case 'in-progress':
+        return 'warning';
+      case 'planning':
+        return 'info';
       default:
-        return "default";
+        return 'default';
     }
   };
 
-  const formatDate = (dateString) => {
-    if (!dateString) return "Ongoing";
+  const formatDate = dateString => {
+    if (!dateString) return 'Ongoing';
     const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
     });
   };
 
@@ -49,10 +51,11 @@ const ProjectCard = ({ project, viewMode = "grid", index = 0 }) => {
       className={`project-card project-card--${viewMode}`}
       variants={cardVariants}
       whileHover={{
-        y: viewMode === "grid" ? -8 : -2,
+        y: viewMode === 'grid' ? -8 : -2,
         transition: { duration: 0.3 },
       }}
       whileTap={{ scale: 0.98 }}
+      onClick={() => navigate(`/project/${project.id}`)}
     >
       {/* Featured Badge */}
       {project.featured && (
@@ -66,7 +69,7 @@ const ProjectCard = ({ project, viewMode = "grid", index = 0 }) => {
       <div
         className={`project-card__badge project-card__badge--status project-card__badge--${getStatusColor(project.status)}`}
       >
-        {project.status.replace("-", " ")}
+        {project.status.replace('-', ' ')}
       </div>
 
       {/* Image */}
@@ -89,7 +92,7 @@ const ProjectCard = ({ project, viewMode = "grid", index = 0 }) => {
             {project.liveUrl && (
               <button
                 className="project-card__action-btn project-card__action-btn--external"
-                onClick={(e) => handleExternalClick(e, project.liveUrl)}
+                onClick={e => handleExternalClick(e, project.liveUrl)}
                 aria-label="View live demo"
               >
                 <ExternalLink size={20} />
@@ -99,7 +102,7 @@ const ProjectCard = ({ project, viewMode = "grid", index = 0 }) => {
             {project.githubUrl && (
               <button
                 className="project-card__action-btn project-card__action-btn--github"
-                onClick={(e) => handleExternalClick(e, project.githubUrl)}
+                onClick={e => handleExternalClick(e, project.githubUrl)}
                 aria-label="View source code"
               >
                 <Github size={20} />
@@ -115,42 +118,38 @@ const ProjectCard = ({ project, viewMode = "grid", index = 0 }) => {
         <div className="project-card__header">
           <h3 className="project-card__title">{project.title}</h3>
 
-          {viewMode === "list" && (
+          {viewMode === 'list' && (
             <div className="project-card__meta">
               <span className="project-card__date">
                 <Calendar size={14} />
                 {formatDate(project.endDate || project.startDate)}
               </span>
-              {project.client && (
-                <span className="project-card__client">{project.client}</span>
-              )}
+              {project.client && <span className="project-card__client">{project.client}</span>}
             </div>
           )}
         </div>
 
         {/* Description */}
         <p className="project-card__description">
-          {viewMode === "grid" ? project.shortDescription : project.description}
+          {viewMode === 'grid' ? project.shortDescription : project.description}
         </p>
 
         {/* Technologies */}
         <div className="project-card__technologies">
-          {project.technologies
-            .slice(0, viewMode === "grid" ? 4 : 6)
-            .map((tech, index) => (
-              <span key={index} className="project-card__tech">
-                {tech}
-              </span>
-            ))}
-          {project.technologies.length > (viewMode === "grid" ? 4 : 6) && (
+          {project.technologies.slice(0, viewMode === 'grid' ? 4 : 6).map((tech, index) => (
+            <span key={index} className="project-card__tech">
+              {tech}
+            </span>
+          ))}
+          {project.technologies.length > (viewMode === 'grid' ? 4 : 6) && (
             <span className="project-card__tech project-card__tech--more">
-              +{project.technologies.length - (viewMode === "grid" ? 4 : 6)}
+              +{project.technologies.length - (viewMode === 'grid' ? 4 : 6)}
             </span>
           )}
         </div>
 
         {/* Metrics (List view only) */}
-        {viewMode === "list" && project.metrics && (
+        {viewMode === 'list' && project.metrics && (
           <div className="project-card__metrics">
             {Object.entries(project.metrics).map(([key, value]) => (
               <div key={key} className="project-card__metric">
@@ -165,7 +164,7 @@ const ProjectCard = ({ project, viewMode = "grid", index = 0 }) => {
 
         {/* Footer */}
         <div className="project-card__footer">
-          {viewMode === "grid" && (
+          {viewMode === 'grid' && (
             <div className="project-card__date">
               <Calendar size={14} />
               <span>{formatDate(project.endDate || project.startDate)}</span>
@@ -179,7 +178,7 @@ const ProjectCard = ({ project, viewMode = "grid", index = 0 }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="project-card__link"
-                onClick={(e) => e.stopPropagation()}
+                onClick={e => e.stopPropagation()}
                 aria-label="View live demo"
               >
                 <ExternalLink size={16} />
@@ -192,7 +191,7 @@ const ProjectCard = ({ project, viewMode = "grid", index = 0 }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="project-card__link"
-                onClick={(e) => e.stopPropagation()}
+                onClick={e => e.stopPropagation()}
                 aria-label="View source code"
               >
                 <Github size={16} />

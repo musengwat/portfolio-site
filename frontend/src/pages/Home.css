@@ -1,0 +1,17 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.section {
+  padding: var(--spacing-20) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--spacing-16) 0;
+  }
+}

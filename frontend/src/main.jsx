@@ -1,7 +1,7 @@
 // portfolio-frontend/src/main.jsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.js';
+import App from './App';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import analytics from './services/analytics';
 import './styles/globals.css';

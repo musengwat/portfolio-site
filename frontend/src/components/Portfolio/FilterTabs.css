@@ -1,0 +1,68 @@
+/* portfolio-frontend/src/components/Portfolio/FilterTabs.css */
+.filter-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-8);
+  flex-wrap: wrap;
+}
+
+.filter-tab {
+  padding: var(--spacing-2) var(--spacing-4);
+  background: var(--color-background-secondary);
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-tab:hover {
+  background: var(--color-background-tertiary);
+  border-color: var(--color-primary-400);
+  transform: translateY(-2px);
+}
+
+.filter-tab--active {
+  background: var(--color-primary-600);
+  border-color: var(--color-primary-700);
+  color: var(--color-text-inverse);
+}
+
+.filter-tab__count {
+  background: var(--color-background-accent);
+  color: var(--color-text-accent);
+  padding: 0.125rem var(--spacing-2);
+  border-radius: var(--border-radius-full);
+  font-size: var(--font-size-xs);
+  margin-left: var(--spacing-2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .filter-tabs {
+    gap: var(--spacing-1);
+  }
+
+  .filter-tab {
+    padding: var(--spacing-1) var(--spacing-3);
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-tabs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: var(--spacing-2);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .filter-tabs::-webkit-scrollbar {
+    display: none;
+  }
+}
