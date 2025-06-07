@@ -1,0 +1,23 @@
+/* portfolio-frontend/src/components/UI/AnimatedText/AnimatedText.css */
+.animated-text {
+  display: inline-block;
+  perspective: 1000px;
+}
+
+.animated-text__char {
+  display: inline-block;
+  transform-origin: center bottom;
+  will-change: transform, opacity;
+}
+
+.animated-text__space {
+  width: 0.25em;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animated-text__char {
+    animation: none !important;
+    transform: none !important;
+  }
+}

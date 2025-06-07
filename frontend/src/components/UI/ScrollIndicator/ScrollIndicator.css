@@ -1,0 +1,33 @@
+/* portfolio-frontend/src/components/UI/ScrollIndicator/ScrollIndicator.css */
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-600),
+    var(--color-secondary-600),
+    var(--color-accent-600)
+  );
+  z-index: 9999;
+  transform-origin: left;
+  border-radius: 0 2px 2px 0;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .scroll-indicator {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-500),
+    var(--color-secondary-500),
+    var(--color-accent-500)
+  );
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-indicator {
+    transition: none;
+  }
+}
