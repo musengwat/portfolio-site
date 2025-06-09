@@ -4,3 +4,5 @@
 2025-06-09 15:24:44:2444 [32minfo[39m: [32m🚀 Server running on port 5000 in development mode[39m
 2025-06-09 15:24:44:2444 [32minfo[39m: [32m📊 Health check available at http://localhost:5000/health[39m
 2025-06-09 15:25:14:2514 [31merror[39m: [31mMongoDB connection error: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017[39m
+2025-06-09 15:25:17:2517 [32minfo[39m: [32m🚀 Server running on port 5000 in development mode[39m
+2025-06-09 15:25:17:2517 [32minfo[39m: [32m📊 Health check available at http://localhost:5000/health[39m
