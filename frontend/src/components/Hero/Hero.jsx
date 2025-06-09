@@ -70,7 +70,7 @@ const Hero = () => {
     // Trigger download
     const link = document.createElement('a');
     link.href = '/assets/resume/john-doe-resume.pdf';
-    link.download = 'John-Doe-Resume.pdf';
+    link.download = 'Thomas-Musengwa-Resume.pdf';
     link.click();
   };
 
@@ -136,8 +136,9 @@ const Hero = () => {
           </motion.div>
 
           <motion.div className="hero__social" variants={itemVariants}>
+            {' '}
             <a
-              href="https://github.com/johndoe"
+              href="https://github.com/musengwat"
               target="_blank"
               rel="noopener noreferrer"
               className="hero__social-link"
@@ -146,7 +147,7 @@ const Hero = () => {
               <Github size={24} />
             </a>
             <a
-              href="https://linkedin.com/in/johndoe"
+              href="https://www.linkedin.com/in/thomas-m-22299913a/"
               target="_blank"
               rel="noopener noreferrer"
               className="hero__social-link"

@@ -178,7 +178,7 @@ export const personalInfo = {
   email: 'ThomasMusengwa1@gmail.com',
   phone: '+1 (479) 367-1647',
   location: 'Fayetteville, Arkansas',
-  website: 'https://thomasmusengwa.dev',
+  website: 'https://thomasmusengwa.me',
   linkedin: 'https://www.linkedin.com/in/thomas-m-22299913a/',
   github: 'https://github.com/musengwat',
   experience: '8+',

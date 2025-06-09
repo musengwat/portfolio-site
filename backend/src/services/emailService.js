@@ -217,10 +217,9 @@ const emailTemplates = {
               <p><strong>Location:</strong> San Francisco, CA</p>
             </div>
             
-            <div class="social-links">
-              <a href="https://linkedin.com/in/johndoe" target="_blank">LinkedIn</a>
-              <a href="https://github.com/johndoe" target="_blank">GitHub</a>
-              <a href="https://twitter.com/johndoe" target="_blank">Twitter</a>
+            <div class="social-links">              <a href="https://www.linkedin.com/in/thomas-m-22299913a/" target="_blank">LinkedIn</a>
+              <a href="https://github.com/musengwat" target="_blank">GitHub</a>
+              <a href="https://twitter.com/ThomasMusengwa" target="_blank">Twitter</a>
             </div>
             
             <p>Looking forward to discussing your project with you!</p>
@@ -281,7 +280,7 @@ const sendAutoReply = async (contact) => {
     const template = emailTemplates.autoReply(contact);
 
     const mailOptions = {
-      from: `"${process.env.ADMIN_NAME || 'John Doe'}" <${process.env.EMAIL_USER}>`,
+      from: `"${process.env.ADMIN_NAME || 'Thomas Musengwa'}" <${process.env.EMAIL_USER}>`,
       to: contact.email,
       subject: template.subject,
       html: template.html,
