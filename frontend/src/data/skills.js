@@ -250,13 +250,13 @@ export const personalInfo = {
   socialLinks: [
     {
       platform: 'GitHub',
-      url: personalInfo.github,
+      url: 'https://github.com/musengwat',
       icon: 'github',
       username: '@musengwat',
     },
     {
       platform: 'LinkedIn',
-      url: personalInfo.linkedin,
+      url: 'https://www.linkedin.com/in/thomas-m-22299913a/',
       icon: 'linkedin',
       username: '@thomas-m-22299913a',
     },
