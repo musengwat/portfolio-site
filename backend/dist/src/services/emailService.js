@@ -242,7 +242,7 @@ const emailTemplates = {
 };
 
 // Send contact notification to admin
-const sendContactNotification = async (contact) => {
+export const sendContactNotification = async (contact) => {
   try {
     const transporter = createTransporter();
     const template = emailTemplates.contactNotification(contact);
@@ -275,7 +275,7 @@ const sendContactNotification = async (contact) => {
 };
 
 // Send auto-reply to contact
-const sendAutoReply = async (contact) => {
+export const sendAutoReply = async (contact) => {
   try {
     const transporter = createTransporter();
     const template = emailTemplates.autoReply(contact);
