@@ -69,7 +69,7 @@ const Hero = () => {
 
     // Trigger download
     const link = document.createElement('a');
-    link.href = '/assets/resume/john-doe-resume.pdf';
+    link.href = '/assets/resume/thomas-musengwa-resume.pdf';
     link.download = 'Thomas-Musengwa-Resume.pdf';
     link.click();
   };

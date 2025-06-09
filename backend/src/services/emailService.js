@@ -2,14 +2,24 @@
 import nodemailer from 'nodemailer';
 import { logger } from '../utils/logger.js';
 
+// Load environment variables
+const EMAIL_HOST = process.env.EMAIL_HOST || 'smtp.gmail.com';
+const EMAIL_PORT = process.env.EMAIL_PORT || 587;
+const EMAIL_USER = process.env.EMAIL_USER || 'thomasmusengwa1@gmail.com';
+const EMAIL_PASS = process.env.EMAIL_PASS;
+const ADMIN_URL = process.env.ADMIN_URL || 'https://thomasmusengwa.me/admin';
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || EMAIL_USER;
+const ADMIN_NAME = process.env.ADMIN_NAME || 'Thomas Musengwa';
+const FRONTEND_URL = process.env.FRONTEND_URL || 'https://thomasmusengwa.me';
+
 // Email configuration
 const emailConfig = {
-  host: process.env.EMAIL_HOST || 'smtp.gmail.com',
-  port: process.env.EMAIL_PORT || 587,
+  host: EMAIL_HOST,
+  port: EMAIL_PORT,
   secure: false, // true for 465, false for other ports
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
+    user: EMAIL_USER,
+    pass: EMAIL_PASS,
   },
 };
 
@@ -123,9 +133,7 @@ const emailTemplates = {
             </div>
             
             <div style="text-align: center; margin-top: 30px;">
-              <a href="${
-                process.env.ADMIN_URL || 'https://johndoe-portfolio.com/admin'
-              }/contacts/${contact._id}" class="button">
+              <a href="${ADMIN_URL}/contacts/${contact._id}" class="button">
                 View in Admin Panel
               </a>
               <a href="mailto:${contact.email}?subject=Re: ${encodeURIComponent(
@@ -201,13 +209,9 @@ const emailTemplates = {
             
             <p>In the meantime, feel free to:</p>
             <ul>
-              <li>Check out my latest projects on my <a href="${
-                process.env.FRONTEND_URL || 'https://johndoe-portfolio.com'
-              }/#portfolio" style="color: #2563eb;">portfolio</a></li>
+              <li>Check out my latest projects on my <a href="${FRONTEND_URL}/#portfolio" style="color: #2563eb;">portfolio</a></li>
               <li>Connect with me on social media (links below)</li>
-              <li>Review my <a href="${
-                process.env.FRONTEND_URL || 'https://johndoe-portfolio.com'
-              }/assets/resume/john-doe-resume.pdf" style="color: #2563eb;">resume</a> for more details about my experience</li>
+              <li>Review my <a href="${FRONTEND_URL}/assets/resume/thomas-musengwa-resume.pdf" style="color: #2563eb;">resume</a> for more details about my experience</li>
             </ul>
             
             <div class="contact-info">
@@ -247,8 +251,8 @@ const sendContactNotification = async (contact) => {
     const template = emailTemplates.contactNotification(contact);
 
     const mailOptions = {
-      from: `"Portfolio Website" <${process.env.EMAIL_USER}>`,
-      to: process.env.ADMIN_EMAIL || process.env.EMAIL_USER,
+      from: `"Portfolio Website" <${EMAIL_USER}>`,
+      to: ADMIN_EMAIL,
       subject: template.subject,
       html: template.html,
       priority: contact.priority === 'urgent' ? 'high' : 'normal',
@@ -280,7 +284,7 @@ const sendAutoReply = async (contact) => {
     const template = emailTemplates.autoReply(contact);
 
     const mailOptions = {
-      from: `"${process.env.ADMIN_NAME || 'Thomas Musengwa'}" <${process.env.EMAIL_USER}>`,
+      from: `"${ADMIN_NAME}" <${EMAIL_USER}>`,
       to: contact.email,
       subject: template.subject,
       html: template.html,
@@ -311,12 +315,12 @@ const sendCustomResponse = async (contact, responseData) => {
     const transporter = createTransporter();
 
     const mailOptions = {
-      from: `"Thomas Musengwa" <${process.env.EMAIL_USER}>`,
+      from: `"Thomas Musengwa" <${EMAIL_USER}>`,
       to: contact.email,
       subject: responseData.subject || `Re: ${contact.subject}`,
       html: responseData.html || responseData.message,
       text: responseData.text,
-      replyTo: process.env.EMAIL_USER,
+      replyTo: EMAIL_USER,
       inReplyTo: contact._id.toString(),
       references: contact._id.toString(),
     };
@@ -360,7 +364,7 @@ const sendTestEmail = async (testEmail) => {
     const transporter = createTransporter();
 
     const mailOptions = {
-      from: `"Portfolio Test" <${process.env.EMAIL_USER}>`,
+      from: `"Portfolio Test" <${EMAIL_USER}>`,
       to: testEmail,
       subject: '🧪 Portfolio Email Test',
       html: `
@@ -368,7 +372,7 @@ const sendTestEmail = async (testEmail) => {
           <h2 style="color: #2563eb;">Email Configuration Test</h2>
           <p>This is a test email to verify that your portfolio email configuration is working correctly.</p>
           <p><strong>Sent at:</strong> ${new Date().toLocaleString()}</p>
-          <p><strong>From:</strong> ${process.env.EMAIL_USER}</p>
+          <p><strong>From:</strong> ${EMAIL_USER}</p>
           <p style="color: #059669;"><strong>✅ If you received this email, your configuration is working!</strong></p>
         </div>
       `,

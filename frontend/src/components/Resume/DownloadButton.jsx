@@ -19,7 +19,7 @@ const DownloadButton = ({ variant = 'primary', size = 'medium', className = '' }
 
     try {
       // Track download attempt
-      trackDownload('john-doe-resume.pdf', 'pdf');
+      trackDownload('thomas-musengwa-resume.pdf', 'pdf');
 
       // Track download on backend
       await api.trackResumeDownload();
@@ -29,8 +29,8 @@ const DownloadButton = ({ variant = 'primary', size = 'medium', className = '' }
 
       // Create download link
       const link = document.createElement('a');
-      link.href = '/assets/resume/john-doe-resume.pdf';
-      link.download = 'John-Doe-Resume.pdf';
+      link.href = '/assets/resume/thomas-musengwa-resume.pdf';
+      link.download = 'thomas-musengwa-resume.pdf';
       link.target = '_blank';
 
       // Trigger download

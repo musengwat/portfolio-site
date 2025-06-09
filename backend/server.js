@@ -81,8 +81,8 @@ const corsOptions = {
     const allowedOrigins = [
       'http://localhost:3000',
       'http://localhost:5173',
-      'https://johndoe-portfolio.com',
-      'https://johndoe-portfolio.netlify.app',
+      'https://thomasmusengwa.me',
+      'https://thomasmusengwa.netlify.app',
     ];
 
     // Allow requests with no origin (like mobile apps or curl requests)

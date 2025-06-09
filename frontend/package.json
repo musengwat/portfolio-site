@@ -147,10 +147,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/johndoe/portfolio-frontend.git"
+    "url": "https://github.com/musengwat/portfolio-site/frontend"
   },
   "bugs": {
-    "url": "https://github.com/johndoe/portfolio-frontend/issues"
+    "url": "https://github.com/musengwat/portfolio-site/issues"
   },
-  "homepage": "https://johndoe-portfolio.com"
+  "homepage": "https://thomasmusengwa.me"
 }
