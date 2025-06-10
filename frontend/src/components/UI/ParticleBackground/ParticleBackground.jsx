@@ -1,6 +1,6 @@
 // portfolio-frontend/src/components/UI/ParticleBackground/ParticleBackground.jsx
-import React, { useEffect, useRef } from "react";
-import "./ParticleBackground.css";
+import React, { useEffect, useRef } from 'react';
+import './ParticleBackground.css';
 
 const ParticleBackground = () => {
   const canvasRef = useRef(null);
@@ -12,7 +12,7 @@ const ParticleBackground = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext('2d');
     let particles = particlesRef.current;
 
     // Resize canvas to fit window
@@ -30,7 +30,7 @@ const ParticleBackground = () => {
         this.vy = (Math.random() - 0.5) * 0.5;
         this.radius = Math.random() * 2 + 1;
         this.opacity = Math.random() * 0.5 + 0.2;
-        this.pulse = Math.random() * 0.02 + 0.01;
+        this.pulse = Math.random() * 0.01;
         this.pulseDirection = 1;
       }
 
@@ -75,9 +75,8 @@ const ParticleBackground = () => {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         ctx.fillStyle =
-          getComputedStyle(document.documentElement).getPropertyValue(
-            "--color-primary-400"
-          ) || "#6366f1";
+          getComputedStyle(document.documentElement).getPropertyValue('--color-primary-400') ||
+          '#6366f1';
         ctx.fill();
         ctx.restore();
       }
@@ -86,10 +85,7 @@ const ParticleBackground = () => {
     // Initialize particles
     const initParticles = () => {
       particles.length = 0;
-      const particleCount = Math.min(
-        100,
-        Math.floor((canvas.width * canvas.height) / 10000)
-      );
+      const particleCount = Math.min(100, Math.floor((canvas.width * canvas.height) / 10000));
 
       for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle());
@@ -112,9 +108,8 @@ const ParticleBackground = () => {
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.strokeStyle =
-              getComputedStyle(document.documentElement).getPropertyValue(
-                "--color-primary-300"
-              ) || "#a5b4fc";
+              getComputedStyle(document.documentElement).getPropertyValue('--color-primary-300') ||
+              '#a5b4fc';
             ctx.lineWidth = 1;
             ctx.stroke();
           }
@@ -128,7 +123,7 @@ const ParticleBackground = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Update and draw particles
-      particles.forEach((particle) => {
+      particles.forEach(particle => {
         particle.update();
         particle.draw();
       });
@@ -140,14 +135,14 @@ const ParticleBackground = () => {
     };
 
     // Mouse move handler
-    const handleMouseMove = (e) => {
+    const handleMouseMove = e => {
       const rect = canvas.getBoundingClientRect();
       mouseRef.current.x = e.clientX - rect.left;
       mouseRef.current.y = e.clientY - rect.top;
     };
 
     // Touch move handler for mobile
-    const handleTouchMove = (e) => {
+    const handleTouchMove = e => {
       e.preventDefault();
       const rect = canvas.getBoundingClientRect();
       const touch = e.touches[0];
@@ -161,29 +156,27 @@ const ParticleBackground = () => {
     animate();
 
     // Event listeners
-    window.addEventListener("resize", () => {
+    window.addEventListener('resize', () => {
       resizeCanvas();
       initParticles();
     });
-    canvas.addEventListener("mousemove", handleMouseMove);
-    canvas.addEventListener("touchmove", handleTouchMove, { passive: false });
+    canvas.addEventListener('mousemove', handleMouseMove);
+    canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
 
     // Cleanup
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
-      window.removeEventListener("resize", resizeCanvas);
-      canvas.removeEventListener("mousemove", handleMouseMove);
-      canvas.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener('resize', resizeCanvas);
+      canvas.removeEventListener('mousemove', handleMouseMove);
+      canvas.removeEventListener('touchmove', handleTouchMove);
     };
   }, []);
 
   // Handle reduced motion preference
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    );
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     if (prefersReducedMotion.matches) {
       if (animationRef.current) {
@@ -192,19 +185,13 @@ const ParticleBackground = () => {
       // Clear canvas for reduced motion users
       const canvas = canvasRef.current;
       if (canvas) {
-        const ctx = canvas.getContext("2d");
+        const ctx = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
       }
     }
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="particle-background"
-      aria-hidden="true"
-    />
-  );
+  return <canvas ref={canvasRef} className="particle-background" aria-hidden="true" />;
 };
 
 export default ParticleBackground;

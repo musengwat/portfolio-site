@@ -1,11 +1,11 @@
 // portfolio-frontend/src/components/Layout/Header.jsx
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon } from "lucide-react";
-import { useTheme } from "../../context/ThemeContext";
-import Navigation from "./Navigation";
-import Button from "../UI/Button/Button";
-import "./Header.css";
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+import { useTheme } from '../../context/ThemeContext';
+import Navigation from './Navigation';
+import Button from '../UI/Button/Button';
+import './Header.css';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,8 +18,8 @@ const Header = () => {
       setIsScrolled(scrollTop > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleMobileMenu = () => {
@@ -32,23 +32,23 @@ const Header = () => {
 
   const headerVariants = {
     transparent: {
-      backgroundColor: "rgba(255, 255, 255, 0)",
-      backdropFilter: "blur(0px)",
-      boxShadow: "0 0 0 rgba(0, 0, 0, 0)",
+      backgroundColor: 'rgba(255, 255, 255, 0)',
+      backdropFilter: 'blur(0px)',
+      boxShadow: '0 0 0 rgba(0, 0, 0, 0)',
     },
     solid: {
-      backgroundColor: "rgba(255, 255, 255, 0.95)",
-      backdropFilter: "blur(10px)",
-      boxShadow: "0 2px 20px rgba(0, 0, 0, 0.1)",
+      backgroundColor: 'rgba(255, 255, 255, 0.95)',
+      backdropFilter: 'blur(10px)',
+      boxShadow: '0 2px 20px rgba(0, 0, 0, 0.1)',
     },
   };
 
   return (
     <>
       <motion.header
-        className={`header ${isScrolled ? "header--scrolled" : ""}`}
+        className={`header ${isScrolled ? 'header--scrolled' : ''}`}
         variants={headerVariants}
-        animate={isScrolled ? "solid" : "transparent"}
+        animate={isScrolled ? 'solid' : 'transparent'}
         transition={{ duration: 0.3 }}
       >
         <div className="header__container">
@@ -59,7 +59,7 @@ const Header = () => {
             whileTap={{ scale: 0.95 }}
           >
             <a href="/" className="header__logo-link">
-              <span className="header__logo-text">JD</span>
+              <span className="header__logo-text">TM</span>
             </a>
           </motion.div>
 
@@ -76,10 +76,10 @@ const Header = () => {
               size="small"
               onClick={toggleTheme}
               className="header__theme-toggle"
-              aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
             >
               <AnimatePresence mode="wait">
-                {theme === "light" ? (
+                {theme === 'light' ? (
                   <motion.div
                     key="moon"
                     initial={{ rotate: -90, opacity: 0 }}
@@ -156,10 +156,10 @@ const Header = () => {
             {/* Mobile Menu */}
             <motion.div
               className="header__mobile-menu"
-              initial={{ x: "100%" }}
+              initial={{ x: '100%' }}
               animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
             >
               <div className="header__mobile-menu-content">
                 <Navigation isMobile={true} onItemClick={closeMobileMenu} />
@@ -170,8 +170,8 @@ const Header = () => {
                     size="large"
                     onClick={() => {
                       closeMobileMenu();
-                      document.getElementById("contact")?.scrollIntoView({
-                        behavior: "smooth",
+                      document.getElementById('contact')?.scrollIntoView({
+                        behavior: 'smooth',
                       });
                     }}
                   >
