@@ -13,7 +13,7 @@ export default defineConfig({
     cors: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'http://thomasmusengwa.me:5000',
         changeOrigin: true,
         secure: false,
       },
