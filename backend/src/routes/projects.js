@@ -21,6 +21,11 @@ router.get('/:id', getProject);
 router.use(auth);
 router.use(isAdmin);
 
+// Admin routes
+router.post('/', authenticate, authorize('admin'), createProject);
+router.put('/:id', authenticate, authorize('admin'), updateProject);
+router.delete('/:id', authenticate, authorize('admin'), deleteProject);
+
 router.post(
   '/',
   [

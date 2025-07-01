@@ -1,33 +1,29 @@
 // portfolio-frontend/src/components/Layout/Navigation.jsx
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { useScrollPosition } from "../../hooks/useScrollPosition";
-import "./Navigation.css";
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { useScrollPosition } from '../../hooks/useScrollPosition';
+import './Navigation.css';
 
 const Navigation = ({ isMobile = false, onItemClick }) => {
-  const [activeSection, setActiveSection] = useState("hero");
+  const [activeSection, setActiveSection] = useState('hero');
   const scrollPosition = useScrollPosition();
 
   const navItems = [
-    { id: "hero", label: "Home", href: "#hero" },
-    { id: "about", label: "About", href: "#about" },
-    { id: "portfolio", label: "Portfolio", href: "#portfolio" },
-    { id: "resume", label: "Resume", href: "#resume" },
-    { id: "testimonials", label: "Testimonials", href: "#testimonials" },
-    { id: "contact", label: "Contact", href: "#contact" },
+    { id: 'hero', label: 'Home', href: '#hero' },
+    { id: 'about', label: 'About', href: '#about' },
+    { id: 'portfolio', label: 'Portfolio', href: '#portfolio' },
+    { id: 'resume', label: 'Resume', href: '#resume' },
+    // { id: "testimonials", label: "Testimonials", href: "#testimonials" },
+    { id: 'contact', label: 'Contact', href: '#contact' },
   ];
 
   useEffect(() => {
-    const sections = navItems.map((item) => document.getElementById(item.id));
-    const sectionTops = sections.map((section) =>
-      section ? section.offsetTop - 100 : 0
-    );
+    const sections = navItems.map(item => document.getElementById(item.id));
+    const sectionTops = sections.map(section => (section ? section.offsetTop - 100 : 0));
 
     const currentSection = sectionTops.findIndex((top, index) => {
       const nextTop = sectionTops[index + 1];
-      return (
-        scrollPosition >= top && (nextTop ? scrollPosition < nextTop : true)
-      );
+      return scrollPosition >= top && (nextTop ? scrollPosition < nextTop : true);
     });
 
     if (currentSection >= 0) {
@@ -41,8 +37,8 @@ const Navigation = ({ isMobile = false, onItemClick }) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
+        behavior: 'smooth',
+        block: 'start',
       });
     }
 
@@ -72,31 +68,27 @@ const Navigation = ({ isMobile = false, onItemClick }) => {
       x: 0,
       transition: {
         duration: 0.3,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   };
 
   return (
     <motion.nav
-      className={`navigation ${isMobile ? "navigation--mobile" : "navigation--desktop"}`}
+      className={`navigation ${isMobile ? 'navigation--mobile' : 'navigation--desktop'}`}
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
       <ul className="navigation__list">
         {navItems.map((item, index) => (
-          <motion.li
-            key={item.id}
-            className="navigation__item"
-            variants={itemVariants}
-          >
+          <motion.li key={item.id} className="navigation__item" variants={itemVariants}>
             <motion.a
               href={item.href}
               className={`navigation__link ${
-                activeSection === item.id ? "navigation__link--active" : ""
+                activeSection === item.id ? 'navigation__link--active' : ''
               }`}
-              onClick={(e) => handleNavClick(e, item.href, item.id)}
+              onClick={e => handleNavClick(e, item.href, item.id)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -106,9 +98,9 @@ const Navigation = ({ isMobile = false, onItemClick }) => {
               {activeSection === item.id && (
                 <motion.span
                   className="navigation__link-indicator"
-                  layoutId={isMobile ? "mobile-indicator" : "desktop-indicator"}
+                  layoutId={isMobile ? 'mobile-indicator' : 'desktop-indicator'}
                   transition={{
-                    type: "spring",
+                    type: 'spring',
                     stiffness: 380,
                     damping: 30,
                   }}

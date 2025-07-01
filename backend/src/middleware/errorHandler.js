@@ -60,24 +60,42 @@ const sendErrorProd = (err, res) => {
 };
 
 const errorHandler = (err, req, res, next) => {
-  err.statusCode = err.statusCode || 500;
-  err.status = err.status || 'error';
+  logger.error('Error:', {
+    error: err.message,
+    stack: err.stack,
+    url: req.url,
+    method: req.method,
+    ip: req.ip,
+  });
 
-  if (process.env.NODE_ENV === 'development') {
-    sendErrorDev(err, res);
-  } else {
-    let error = { ...err };
-    error.message = err.message;
+  const status = err.status || 500;
+  const message = err.message || 'Internal Server Error';
 
-    if (error.name === 'CastError') error = handleCastErrorDB(error);
-    if (error.name === 'ValidationError')
-      error = handleValidationErrorDB(error);
-    if (error.code === 11000) error = handleDuplicateFieldsDB(error);
-    if (error.name === 'JsonWebTokenError') error = handleJWTError();
-    if (error.name === 'TokenExpiredError') error = handleJWTExpiredError();
-
-    sendErrorProd(error, res);
-  }
+  res.status(status).json({
+    error: message,
+    ...(process.env.NODE_ENV === 'development' && { stack: err.stack }),
+  });
 };
+
+// const errorHandler = (err, req, res, next) => {
+//   err.statusCode = err.statusCode || 500;
+//   err.status = err.status || 'error';
+
+//   if (process.env.NODE_ENV === 'development') {
+//     sendErrorDev(err, res);
+//   } else {
+//     let error = { ...err };
+//     error.message = err.message;
+
+//     if (error.name === 'CastError') error = handleCastErrorDB(error);
+//     if (error.name === 'ValidationError')
+//       error = handleValidationErrorDB(error);
+//     if (error.code === 11000) error = handleDuplicateFieldsDB(error);
+//     if (error.name === 'JsonWebTokenError') error = handleJWTError();
+//     if (error.name === 'TokenExpiredError') error = handleJWTExpiredError();
+
+//     sendErrorProd(error, res);
+//   }
+// };
 
 export { AppError, errorHandler as default };

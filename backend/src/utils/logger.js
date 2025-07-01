@@ -2,6 +2,7 @@
 import winston from 'winston';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import DailyRotateFile from 'winston-daily-rotate-file';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,20 +28,48 @@ const colors = {
 // Add colors to winston
 winston.addColors(colors);
 
+const logFormat = winston.format.printf(
+  ({ level, message, timestamp, ...metadata }) => {
+    let msg = `${timestamp} [${level}]: ${message}`;
+    if (Object.keys(metadata).length > 0) {
+      msg += ` ${JSON.stringify(metadata)}`;
+    }
+    return msg;
+  }
+);
 // Define the format
 const format = winston.format.combine(
   winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss:ms' }),
   winston.format.colorize({ all: true }),
-  winston.format.printf(
-    (info) => `${info.timestamp} ${info.level}: ${info.message}`
-  )
+  // winston.format.printf(
+  //   (info) => `${info.timestamp} ${info.level}: ${info.message}`
+  // ),
+  winston.format.errors({ stack: true }),
+  winston.format.splat(),
+  logFormat
 );
 
 // Define which transports the logger must use
 const transports = [
-  // Console transport
-  new winston.transports.Console(),
-
+  new winston.transports.Console({
+    format: winston.format.combine(
+      winston.format.colorize(),
+      winston.format.simple()
+    ),
+  }),
+  new DailyRotateFile({
+    filename: 'logs/error-%DATE%.log',
+    datePattern: 'YYYY-MM-DD',
+    level: 'error',
+    maxSize: '20m',
+    maxFiles: '14d',
+  }),
+  new DailyRotateFile({
+    filename: 'logs/combined-%DATE%.log',
+    datePattern: 'YYYY-MM-DD',
+    maxSize: '20m',
+    maxFiles: '14d',
+  }),
   // Error log file transport
   new winston.transports.File({
     filename: path.join(__dirname, '../../logs/error.log'),

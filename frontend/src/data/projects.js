@@ -2,243 +2,400 @@
 export const projects = [
   {
     id: 1,
-    title: 'E-Commerce Platform',
+    title: 'Abyss Mobile Component Library',
     description:
-      'A full-stack e-commerce solution built with React, Node.js, and MongoDB. Features include user authentication, product management, shopping cart, payment integration, and admin dashboard.',
-    shortDescription: 'Full-stack e-commerce platform with payment integration',
-    image: '/assets/images/projects/ecommerce-platform.jpg',
+      'A flexible, scalable React Native component library adopted across UnitedHealth Group and its subsidiaries. Features a three-tier design token system, 80+ components, and white labeling capabilities.',
+    shortDescription: 'Enterprise React Native component library saving $2M+ annually',
+    image: '/assets/images/projects/abyss-mobile.jpg',
     images: [
-      '/assets/images/projects/ecommerce-platform.jpg',
-      '/assets/images/projects/ecommerce-detail-1.jpg',
-      '/assets/images/projects/ecommerce-detail-2.jpg',
+      '/assets/images/projects/abyss-mobile.jpg',
+      '/assets/images/projects/abyss-detail-1.jpg',
+      '/assets/images/projects/abyss-detail-2.jpg',
     ],
-    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Stripe', 'JWT', 'Material-UI'],
-    category: 'fullstack',
+    technologies: [
+      'React Native',
+      'TypeScript',
+      'Figma',
+      'Figma Token Studio',
+      'Emotion Native',
+      'CI/CD',
+      'Jest',
+    ],
+    category: 'mobile',
     featured: true,
-    liveUrl: 'https://ecommerce-demo.com',
-    githubUrl: 'https://github.com/musengwat/ecommerce-platform',
+    liveUrl: null,
+    githubUrl: null,
     status: 'completed',
-    startDate: '2024-01-15',
-    endDate: '2024-03-20',
-    client: 'Personal Project',
+    startDate: '2023-01-15',
+    endDate: null,
+    client: 'Optum Health / UnitedHealth Group',
     challenges: [
-      'Implementing secure payment processing with Stripe',
-      'Optimizing database queries for large product catalogs',
-      'Creating responsive design for mobile commerce',
+      'Supporting both house of brands and branded house architectures',
+      'Implementing white labeling capability across 3 base brands',
+      'Ensuring WCAG 2.2 compliance for all components',
+      'Token hierarchy allowing overwrites at any level',
     ],
     features: [
-      'User authentication and authorization',
-      'Product catalog with search and filtering',
-      'Shopping cart and wishlist functionality',
-      'Secure payment processing',
-      'Order tracking and history',
-      'Admin dashboard for inventory management',
-      'Email notifications',
-      'Responsive design',
+      '80+ accessible components',
+      'Three-tier token system (core, semantic, component)',
+      'White labeling support',
+      'Figma Code Connect integration',
+      'WCAG 2.2 compliant',
+      'Automated testing pipeline',
+      'Multi-brand theming',
+      'Comprehensive documentation',
     ],
     metrics: {
-      users: '500+',
-      pageSpeed: '95/100',
-      uptime: '99.9%',
+      savings: '$2M+ annually',
+      devHours: '50,000+ saved',
+      components: '80+',
     },
   },
   {
     id: 2,
-    title: 'Task Management App',
+    title: 'Hunter Cooke Portfolio Website',
     description:
-      'A collaborative task management application with real-time updates, team collaboration features, and advanced project tracking capabilities.',
-    shortDescription: 'Collaborative task management with real-time updates',
-    image: '/assets/images/projects/task-management.jpg',
+      'A modern, responsive portfolio website showcasing professional work and creative projects. Built with modern web technologies for optimal performance and user experience.',
+    shortDescription: 'Professional portfolio website with modern design',
+    image: '/assets/images/projects/hunter-cooke.jpg',
     images: [
-      '/assets/images/projects/task-management.jpg',
-      '/assets/images/projects/task-detail-1.jpg',
-      '/assets/images/projects/task-detail-2.jpg',
+      '/assets/images/projects/hunter-cooke.jpg',
+      '/assets/images/projects/hunter-detail-1.jpg',
     ],
-    technologies: ['React', 'TypeScript', 'Socket.io', 'Node.js', 'PostgreSQL', 'Redis'],
+    technologies: ['React', 'JavaScript', 'CSS3', 'HTML5', 'Responsive Design'],
     category: 'frontend',
     featured: true,
-    liveUrl: 'https://taskflow-demo.com',
-    githubUrl: 'https://github.com/musengwat/taskflow',
+    liveUrl: 'https://huntercooke.work/',
+    githubUrl: 'https://github.com/musengwat/hunter-cooke-website',
     status: 'completed',
-    startDate: '2023-10-01',
-    endDate: '2023-12-15',
-    client: 'Startup Company',
+    startDate: '2023-08-01',
+    endDate: '2023-09-15',
+    client: 'Hunter Cooke',
     challenges: [
-      'Implementing real-time collaboration features',
-      'Managing complex state with TypeScript',
-      'Optimizing performance for large datasets',
-    ],
-    features: [
-      'Real-time collaboration',
-      'Drag-and-drop interface',
-      'Team management',
-      'File attachments',
-      'Time tracking',
-      'Gantt charts',
-      'Mobile responsive',
-    ],
-    metrics: {
-      users: '1000+',
-      performance: '98/100',
-      satisfaction: '4.8/5',
-    },
-  },
-  {
-    id: 3,
-    title: 'Weather Analytics Dashboard',
-    description:
-      'A comprehensive weather analytics dashboard that visualizes climate data, trends, and forecasts using interactive charts and maps.',
-    shortDescription: 'Interactive weather data visualization platform',
-    image: '/assets/images/projects/weather-dashboard.jpg',
-    images: [
-      '/assets/images/projects/weather-dashboard.jpg',
-      '/assets/images/projects/weather-detail-1.jpg',
-    ],
-    technologies: ['React', 'D3.js', 'Python', 'FastAPI', 'PostgreSQL', 'Docker'],
-    category: 'data',
-    featured: false,
-    liveUrl: 'https://weather-analytics.com',
-    githubUrl: 'https://github.com/musengwat/weather-analytics',
-    status: 'completed',
-    startDate: '2023-07-01',
-    endDate: '2023-09-30',
-    client: 'Research Institute',
-    challenges: [
-      'Processing large datasets efficiently',
-      'Creating interactive data visualizations',
-      'Integrating multiple weather APIs',
-    ],
-    features: [
-      'Interactive maps',
-      'Real-time weather updates',
-      'Historical data analysis',
-      'Custom alerts',
-      'Data export functionality',
-      'Multi-location tracking',
-    ],
-    metrics: {
-      dataPoints: '10M+',
-      accuracy: '99.2%',
-      response: '<200ms',
-    },
-  },
-  {
-    id: 4,
-    title: 'Portfolio Website',
-    description:
-      'A modern, responsive portfolio website built with React and Node.js, featuring animations, contact forms, and admin dashboard.',
-    shortDescription: 'Modern portfolio with admin dashboard',
-    image: '/assets/images/projects/portfolio-website.jpg',
-    images: ['/assets/images/projects/portfolio-website.jpg'],
-    technologies: ['React', 'Node.js', 'MongoDB', 'Framer Motion', 'EmailJS'],
-    category: 'frontend',
-    featured: false,
-    liveUrl: 'https://thomasmusengwa.me',
-    githubUrl: 'https://github.com/musengwat/portfolio',
-    status: 'completed',
-    startDate: '2024-02-01',
-    endDate: '2024-02-28',
-    client: 'Personal Project',
-    challenges: [
-      'Creating smooth animations',
-      'Optimizing for performance',
-      'Implementing contact form',
+      'Creating engaging visual design',
+      'Optimizing for all device sizes',
+      'Ensuring fast load times',
     ],
     features: [
       'Responsive design',
-      'Smooth animations',
-      'Contact form',
-      'Project showcase',
-      'Blog integration',
+      'Portfolio showcase',
+      'Contact integration',
       'SEO optimized',
+      'Performance optimized',
+      'Modern UI/UX',
     ],
     metrics: {
-      performance: '100/100',
-      accessibility: '100/100',
+      performance: '95/100',
+      mobile: '100/100',
       seo: '100/100',
     },
   },
   {
-    id: 5,
-    title: 'API Gateway Service',
+    id: 3,
+    title: 'Ball Metal Fab Website',
     description:
-      'A robust API gateway service built with Node.js and Express, featuring rate limiting, authentication, logging, and microservices integration.',
-    shortDescription: 'Microservices API gateway with advanced features',
-    image: '/assets/images/projects/api-gateway.jpg',
-    images: ['/assets/images/projects/api-gateway.jpg'],
-    technologies: ['Node.js', 'Express', 'Redis', 'Docker', 'Kubernetes', 'JWT'],
+      'A comprehensive business website for Ball Metal Fabrication showcasing their services, portfolio, and facilitating customer engagement with modern design and functionality.',
+    shortDescription: 'Industrial business website with service showcase',
+    image: '/assets/images/projects/ball-metal-fab.jpg',
+    images: [
+      '/assets/images/projects/ball-metal-fab.jpg',
+      '/assets/images/projects/bmf-detail-1.jpg',
+    ],
+    technologies: ['React', 'JavaScript', 'CSS3', 'SEO', 'Responsive Design'],
+    category: 'frontend',
+    featured: true,
+    liveUrl: 'https://ballmetalfab.com/',
+    githubUrl: 'https://github.com/sumudigital/BMF',
+    status: 'completed',
+    startDate: '2023-06-01',
+    endDate: '2023-07-30',
+    client: 'Ball Metal Fabrication',
+    challenges: [
+      'Showcasing industrial services effectively',
+      'Creating intuitive navigation for service categories',
+      'Optimizing for local SEO',
+    ],
+    features: [
+      'Service showcase',
+      'Portfolio gallery',
+      'Contact forms',
+      'Mobile responsive',
+      'SEO optimized',
+      'Fast loading',
+    ],
+    metrics: {
+      performance: '92/100',
+      conversions: '+35%',
+      engagement: '+50%',
+    },
+  },
+  {
+    id: 4,
+    title: 'Walmart Pickup Towers UI',
+    description:
+      'Redesigned and developed the user interface for Walmart pickup tower progress screens, improving customer experience and saving millions in labor costs and customer hours.',
+    shortDescription: 'Revolutionary pickup tower interface saving $1M+ annually',
+    image: '/assets/images/projects/walmart-pickup.jpg',
+    images: ['/assets/images/projects/walmart-pickup.jpg'],
+    technologies: ['ReactJS', 'JavaScript', 'CSS3', 'User Experience Design'],
+    category: 'frontend',
+    featured: true,
+    liveUrl: null,
+    githubUrl: null,
+    status: 'completed',
+    startDate: '2019-03-01',
+    endDate: '2019-08-30',
+    client: 'Walmart Labs',
+    challenges: [
+      'Creating intuitive interface for diverse user base',
+      'Reducing customer wait times',
+      'Integrating with existing systems',
+    ],
+    features: [
+      'Real-time order tracking',
+      'Intuitive progress indicators',
+      'Multi-language support',
+      'Accessibility features',
+      'Error handling',
+      'Quick scan functionality',
+    ],
+    metrics: {
+      savings: '$1M+ annually',
+      customerHours: '3.65M saved',
+      satisfaction: '95%',
+    },
+  },
+  {
+    id: 5,
+    title: 'Project WIN - Logistics Platform',
+    description:
+      'Developed APIs and systems to optimize truck loading for Tyson Foods, ensuring compliance with regulations and improving delivery efficiency by 30%.',
+    shortDescription: 'Logistics optimization platform improving efficiency by 30%',
+    image: '/assets/images/projects/project-win.jpg',
+    images: ['/assets/images/projects/project-win.jpg'],
+    technologies: ['NodeJS', 'Sequelize', 'PostgreSQL', 'Express', 'API Development'],
     category: 'backend',
     featured: true,
     liveUrl: null,
-    githubUrl: 'https://github.com/musengwat/api-gateway',
+    githubUrl: null,
     status: 'completed',
-    startDate: '2023-05-01',
-    endDate: '2023-08-15',
-    client: 'Enterprise Client',
+    startDate: '2021-06-01',
+    endDate: '2021-12-15',
+    client: 'Tyson Foods',
     challenges: [
-      'Implementing high-performance routing',
-      'Managing microservices communication',
-      'Ensuring security and rate limiting',
+      'Compliance with varying state and local laws',
+      'Optimizing complex delivery routes',
+      'Real-time load calculations',
     ],
     features: [
-      'API routing and load balancing',
-      'Rate limiting and throttling',
-      'Authentication and authorization',
-      'Request/response logging',
-      'Health checks and monitoring',
-      'Docker containerization',
+      'Automated load optimization',
+      'Compliance checking',
+      'Route optimization',
+      'Real-time tracking',
+      'Reporting dashboard',
+      'API integration',
     ],
     metrics: {
-      throughput: '10k req/sec',
-      latency: '<50ms',
-      uptime: '99.99%',
+      efficiency: '+30%',
+      compliance: '100%',
+      apiUptime: '99.9%',
     },
   },
   {
     id: 6,
-    title: 'Machine Learning Platform',
+    title: 'Metrics that Matter Mobile App',
     description:
-      'A comprehensive ML platform for data scientists featuring model training, deployment, monitoring, and collaborative workflows.',
-    shortDescription: 'End-to-end machine learning platform',
-    image: '/assets/images/projects/ml-platform.jpg',
-    images: ['/assets/images/projects/ml-platform.jpg'],
-    technologies: ['Python', 'TensorFlow', 'Docker', 'Kubernetes', 'React', 'FastAPI'],
-    category: 'data',
+      'A ReactJS-based mobile application for Walmart Store management to monitor KPIs, schedules, and essential information, saving $4 million annually.',
+    shortDescription: 'Store management KPI dashboard saving $4M annually',
+    image: '/assets/images/projects/metrics-matter.jpg',
+    images: ['/assets/images/projects/metrics-matter.jpg'],
+    technologies: ['ReactJS', 'React Native', 'Redux', 'Chart.js', 'API Integration'],
+    category: 'mobile',
     featured: false,
-    liveUrl: 'https://ml-platform-demo.com',
-    githubUrl: 'https://github.com/musengwat/ml-platform',
-    status: 'in-progress',
-    startDate: '2024-01-01',
-    endDate: null,
-    client: 'AI Startup',
+    liveUrl: null,
+    githubUrl: null,
+    status: 'completed',
+    startDate: '2018-09-01',
+    endDate: '2019-02-28',
+    client: 'Walmart Labs',
     challenges: [
-      'Scaling model training pipelines',
-      'Managing ML model versions',
-      'Creating intuitive data science workflows',
+      'Real-time data synchronization',
+      'Offline functionality',
+      'Complex data visualization',
     ],
     features: [
-      'Model training pipelines',
-      'Automated model deployment',
-      'Performance monitoring',
-      'Data visualization',
-      'Collaborative notebooks',
-      'Version control for models',
+      'Real-time KPI tracking',
+      'Schedule management',
+      'Performance analytics',
+      'Push notifications',
+      'Offline mode',
+      'Data export',
     ],
     metrics: {
-      models: '50+',
-      accuracy: '94%',
-      deployment: 'Auto',
+      savings: '$4M annually',
+      users: '10,000+',
+      adoption: '95%',
     },
   },
+  {
+    id: 7,
+    title: 'COVID Testing Automation Platform',
+    description:
+      'Rapidly developed front-end to automate random COVID testing scheduling for Tyson Foods associates, streamlining health and safety protocols.',
+    shortDescription: 'Automated COVID testing scheduler for enterprise',
+    image: '/assets/images/projects/covid-testing.jpg',
+    images: ['/assets/images/projects/covid-testing.jpg'],
+    technologies: ['ReactJS', 'NodeJS', 'PostgreSQL', 'Calendar Integration', 'Email Automation'],
+    category: 'fullstack',
+    featured: false,
+    liveUrl: null,
+    githubUrl: null,
+    status: 'completed',
+    startDate: '2021-03-15',
+    endDate: '2021-04-30',
+    client: 'Tyson Foods',
+    challenges: [
+      'Rapid development timeline',
+      'HIPAA compliance',
+      'Large-scale scheduling automation',
+    ],
+    features: [
+      'Random selection algorithm',
+      'Automated scheduling',
+      'Email notifications',
+      'Compliance tracking',
+      'Reporting dashboard',
+      'Calendar integration',
+    ],
+    metrics: {
+      timeToMarket: '6 weeks',
+      associates: '100,000+',
+      automation: '100%',
+    },
+  },
+  {
+    id: 8,
+    title: 'ICDD Data Portal',
+    description:
+      'Comprehensive portal for delivering diffraction data, reducing delivery time by 2 weeks per order through AWS integration and streamlined workflows.',
+    shortDescription: 'Scientific data delivery portal with AWS integration',
+    image: '/assets/images/projects/icdd-portal.jpg',
+    images: ['/assets/images/projects/icdd-portal.jpg'],
+    technologies: ['ReactJS', 'NodeJS', 'AWS S3', 'AWS Cognito', 'PostgreSQL', 'Express'],
+    category: 'fullstack',
+    featured: false,
+    liveUrl: null,
+    githubUrl: null,
+    status: 'completed',
+    startDate: '2022-07-01',
+    endDate: '2022-09-30',
+    client: 'ICDD',
+    challenges: [
+      'Large file handling and delivery',
+      'Secure authentication system',
+      'Performance optimization for data transfer',
+    ],
+    features: [
+      'Secure file delivery',
+      'User authentication',
+      'Order management',
+      'Progress tracking',
+      'AWS integration',
+      'Automated workflows',
+    ],
+    metrics: {
+      deliveryTime: '-2 weeks',
+      fileSize: 'Up to 10GB',
+      uptime: '99.9%',
+    },
+  },
+  {
+    id: 9,
+    title: 'Avva Vehicle Leasing App',
+    description:
+      'Customer-oriented vehicle leasing application integrating maintenance, repairs, insurance, and services using React Native with real-time updates.',
+    shortDescription: 'All-in-one vehicle leasing and management app',
+    image: '/assets/images/projects/avva-app.jpg',
+    images: ['/assets/images/projects/avva-app.jpg'],
+    technologies: ['React Native', 'TypeScript', 'SWR', 'REST APIs', 'Push Notifications'],
+    category: 'mobile',
+    featured: false,
+    liveUrl: null,
+    githubUrl: null,
+    status: 'completed',
+    startDate: '2022-10-15',
+    endDate: '2023-01-15',
+    client: 'Avva',
+    challenges: ['Complex service integration', 'Real-time updates', 'Payment processing'],
+    features: [
+      'Vehicle management',
+      'Service scheduling',
+      'Insurance integration',
+      'Payment processing',
+      'Push notifications',
+      'Service history',
+    ],
+    metrics: {
+      users: '5,000+',
+      services: '7 integrated',
+      rating: '4.7/5',
+    },
+  },
+  // {
+  //   id: 10,
+  //   title: 'AMP+ Task Delegation Portal',
+  //   description:
+  //     'Portal enabling task delegation from Home Office associates to store associates, streamlining operations across Walmart locations.',
+  //   shortDescription: 'Enterprise task management and delegation system',
+  //   image: '/assets/images/projects/amp-plus.jpg',
+  //   images: ['/assets/images/projects/amp-plus.jpg'],
+  //   technologies: ['ReactJS', 'NodeJS', 'Redux', 'WebSockets', 'PostgreSQL'],
+  //   category: 'fullstack',
+  //   featured: false,
+  //   liveUrl: null,
+  //   githubUrl: null,
+  //   status: 'completed',
+  //   startDate: '2018-03-01',
+  //   endDate: '2018-08-30',
+  //   client: 'Walmart Labs',
+  //   // challenges: [
+  //   //   'Real-time task synchronization',
+  //   //   'Scalability for thousands of stores',
+  //   //   'Complex permission systems',
+  //   // ],
+  //   // features: [
+  //   //   'Task delegation',
+  //   //   'Real-time updates',
+  //   //   'Priority management',
+  //   //   'Progress tracking',
+  //   //   'Reporting tools',
+  //   //   'Multi-store support',
+  //   // ],
+  //   // metrics: {
+  //   //   stores: '4,000+',
+  //   //   tasks: '100K+ daily',
+  //   //   efficiency: '+40%',
+  //   // },
+
+  //   challenges: ['Complex service integration', 'Real-time updates', 'Payment processing'],
+  //   features: [
+  //     'Vehicle management',
+  //     'Service scheduling',
+  //     'Insurance integration',
+  //     'Payment processing',
+  //     'Push notifications',
+  //     'Service history',
+  //   ],
+  //   metrics: {
+  //     users: '5,000+',
+  //     services: '7 integrated',
+  //     rating: '4.7/5',
+  //   },
+  // },
 ];
 
 export const categories = [
   { id: 'all', label: 'All Projects', count: projects.length },
-  {
-    id: 'fullstack',
-    label: 'Full Stack',
-    count: projects.filter(p => p.category === 'fullstack').length,
-  },
   {
     id: 'frontend',
     label: 'Frontend',
@@ -250,9 +407,15 @@ export const categories = [
     count: projects.filter(p => p.category === 'backend').length,
   },
   {
-    id: 'data',
-    label: 'Data & ML',
-    count: projects.filter(p => p.category === 'data').length,
+    id: 'fullstack',
+    label: 'Full Stack',
+    count: projects.filter(p => p.category === 'fullstack').length,
+  },
+
+  {
+    id: 'mobile',
+    label: 'Mobile',
+    count: projects.filter(p => p.category === 'mobile').length,
   },
 ];
 
@@ -273,12 +436,56 @@ export const getProjectsByTechnology = technology => {
   );
 };
 
+export const getProjectsByClient = client => {
+  return projects.filter(project => project.client.toLowerCase().includes(client.toLowerCase()));
+};
+
 export const getCompletedProjects = () => {
   return projects.filter(project => project.status === 'completed');
 };
 
 export const getInProgressProjects = () => {
   return projects.filter(project => project.status === 'in-progress');
+};
+
+export const getProjectsByYear = year => {
+  return projects.filter(project => {
+    const startYear = new Date(project.startDate).getFullYear();
+    const endYear = project.endDate
+      ? new Date(project.endDate).getFullYear()
+      : new Date().getFullYear();
+    return year >= startYear && year <= endYear;
+  });
+};
+
+// Get total impact metrics
+export const getTotalImpact = () => {
+  let totalSavings = 0;
+  let totalUsers = 0;
+
+  projects.forEach(project => {
+    if (project.metrics && project.metrics.savings) {
+      const savings = project.metrics.savings.match(/\$([\d.]+)([MK])?/);
+      if (savings) {
+        let amount = parseFloat(savings[1]);
+        if (savings[2] === 'M') amount *= 1000000;
+        else if (savings[2] === 'K') amount *= 1000;
+        totalSavings += amount;
+      }
+    }
+    if (project.metrics && project.metrics?.users) {
+      const users = project.metrics.users.match(/([\d,]+)/);
+      if (users) {
+        totalUsers += parseInt(users[1].replace(/,/g, ''));
+      }
+    }
+  });
+
+  return {
+    totalSavings: `$${(totalSavings / 1000000).toFixed(1)}M+`,
+    totalUsers: `${Math.floor(totalUsers / 1000)}K+`,
+    projectsCompleted: getCompletedProjects().length,
+  };
 };
 
 export default projects;
