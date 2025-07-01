@@ -1,5 +1,5 @@
 // portfolio-frontend/src/hooks/useIntersectionObserver.js
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from 'react';
 
 export const useIntersectionObserver = (options = {}) => {
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -14,6 +14,7 @@ export const useIntersectionObserver = (options = {}) => {
       ([entry]) => {
         const intersecting = entry.isIntersecting;
         setIsIntersecting(intersecting);
+        console.log(element.id, intersecting, 'isIntersecting', hasIntersected, 'hasIntersected');
 
         // Once intersected, keep it true (for animations that should only happen once)
         if (intersecting && !hasIntersected) {
@@ -21,8 +22,8 @@ export const useIntersectionObserver = (options = {}) => {
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
+        threshold: 0.2,
+        rootMargin: '0px 0px -24px 0px',
         ...options,
       }
     );

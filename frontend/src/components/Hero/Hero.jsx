@@ -13,8 +13,8 @@ const Hero = () => {
     'Full Stack Developer',
     'React Specialist',
     'Node.js Expert',
-    'UI/UX Enthusiast',
     'Problem Solver',
+    'Team Player',
   ];
 
   useEffect(() => {
@@ -136,7 +136,6 @@ const Hero = () => {
           </motion.div>
 
           <motion.div className="hero__social" variants={itemVariants}>
-            {' '}
             <a
               href="https://github.com/musengwat"
               target="_blank"
@@ -195,7 +194,7 @@ const Hero = () => {
         >
           <div className="hero__image-container">
             <img
-              src="/assets/images/profile-photo.jpg"
+              src="/assets/images/hero-photo.jpg"
               alt="Thomas Musengwa - Full Stack Developer"
               className="hero__profile-image"
               loading="eager"

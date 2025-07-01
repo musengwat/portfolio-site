@@ -11,24 +11,16 @@ import { trackPageView } from '../services/analytics';
 import './Home.css';
 
 const Home = () => {
-  const [heroRef, heroInView] = useIntersectionObserver({ threshold: 0.3 });
-  const [aboutRef, aboutInView] = useIntersectionObserver({ threshold: 0.3 });
-  const [portfolioRef, portfolioInView] = useIntersectionObserver({
-    threshold: 0.3,
-  });
-  const [resumeRef, resumeInView] = useIntersectionObserver({ threshold: 0.3 });
-  const [contactRef, contactInView] = useIntersectionObserver({
-    threshold: 0.3,
-  });
+  const [heroRef, heroInView] = useIntersectionObserver();
+  const [aboutRef, aboutInView] = useIntersectionObserver();
+  const [portfolioRef, portfolioInView] = useIntersectionObserver();
+  const [resumeRef, resumeInView] = useIntersectionObserver();
+  const [contactRef, contactInView] = useIntersectionObserver();
 
   useEffect(() => {
-    // Track page view
     trackPageView('home');
+    document.title = 'Thomas Musengwa';
 
-    // Update document title
-    document.title = 'Thomas Musengwa - Full Stack Developer Portfolio';
-
-    // Update meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
@@ -39,7 +31,7 @@ const Home = () => {
   }, []);
 
   const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 48 },
     visible: {
       opacity: 1,
       y: 0,
@@ -52,7 +44,6 @@ const Home = () => {
 
   return (
     <main className="home">
-      {/* Hero Section */}
       <motion.section
         ref={heroRef}
         initial="hidden"
@@ -63,7 +54,6 @@ const Home = () => {
       >
         <Hero />
       </motion.section>
-      {/* About Section */}
       <motion.section
         ref={aboutRef}
         initial="hidden"
@@ -74,7 +64,6 @@ const Home = () => {
       >
         <About />
       </motion.section>
-      {/* Portfolio Section */}
       <motion.section
         ref={portfolioRef}
         initial="hidden"
@@ -85,7 +74,6 @@ const Home = () => {
       >
         <Portfolio />
       </motion.section>
-      {/* Resume Section */}
       <motion.section
         ref={resumeRef}
         initial="hidden"
@@ -95,8 +83,7 @@ const Home = () => {
         className="section"
       >
         <Resume />
-      </motion.section>{' '}
-      {/* Contact Section */}
+      </motion.section>
       <motion.section
         ref={contactRef}
         initial="hidden"

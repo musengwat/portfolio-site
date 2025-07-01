@@ -32,12 +32,10 @@ const Header = () => {
 
   const headerVariants = {
     transparent: {
-      backgroundColor: 'rgba(255, 255, 255, 0)',
       backdropFilter: 'blur(0px)',
       boxShadow: '0 0 0 rgba(0, 0, 0, 0)',
     },
     solid: {
-      backgroundColor: 'rgba(255, 255, 255, 0.95)',
       backdropFilter: 'blur(10px)',
       boxShadow: '0 2px 20px rgba(0, 0, 0, 0.1)',
     },
