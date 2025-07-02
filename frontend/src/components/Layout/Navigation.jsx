@@ -1,5 +1,6 @@
 // portfolio-frontend/src/components/Layout/Navigation.jsx
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useScrollPosition } from '../../hooks/useScrollPosition';
 import './Navigation.css';
@@ -7,6 +8,7 @@ import './Navigation.css';
 const Navigation = ({ isMobile = false, onItemClick }) => {
   const [activeSection, setActiveSection] = useState('hero');
   const scrollPosition = useScrollPosition();
+  const navigate = useNavigate();
 
   const navItems = [
     { id: 'hero', label: 'Home', href: '#hero' },
@@ -30,16 +32,24 @@ const Navigation = ({ isMobile = false, onItemClick }) => {
       setActiveSection(navItems[currentSection].id);
     }
   }, [scrollPosition]);
-
   const handleNavClick = (e, href, id) => {
     e.preventDefault();
+    const url = window.location.href;
+    const scrollToSection = () => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+    };
 
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
+    if (url && url.includes('project')) {
+      navigate('/', { replace: false });
+      setTimeout(scrollToSection, 100);
+    } else {
+      scrollToSection();
     }
 
     onItemClick?.();
@@ -94,7 +104,6 @@ const Navigation = ({ isMobile = false, onItemClick }) => {
             >
               <span className="navigation__link-text">{item.label}</span>
 
-              {/* Active indicator */}
               {activeSection === item.id && (
                 <motion.span
                   className="navigation__link-indicator"
