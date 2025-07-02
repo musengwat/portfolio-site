@@ -1,7 +1,7 @@
 // portfolio-frontend/src/components/About/About.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Database, Palette, Zap, Users, Target } from 'lucide-react';
+import { MonitorSmartphone, Accessibility, Code2 } from 'lucide-react';
 import SkillsChart from './SkillsChart';
 import { skills, personalInfo } from '../../data/skills';
 import './About.css';
@@ -30,34 +30,24 @@ const About = () => {
     },
   };
 
-  const stats = [
-    {
-      icon: Code2,
-      label: 'Projects Completed',
-      value: '50+',
-      color: 'primary',
-    },
-    { icon: Users, label: 'Happy Clients', value: '25+', color: 'secondary' },
-    { icon: Zap, label: 'Years Experience', value: '5+', color: 'accent' },
-    { icon: Target, label: 'Success Rate', value: '98%', color: 'success' },
-  ];
-
   const highlights = [
     {
-      icon: Code2,
-      title: 'Full Stack Development',
+      icon: MonitorSmartphone,
+      title: 'React / React Native',
       description:
-        'Expert in modern web technologies including React, Node.js, and cloud platforms.',
+        'Expert at building scalable web and mobile apps with a focus on performance, efficiency & accessibility.',
     },
     {
-      icon: Database,
-      title: 'Database Design',
-      description: 'Proficient in SQL and NoSQL databases, optimization, and data architecture.',
+      icon: Accessibility,
+      title: 'WCAG / A11y Development',
+      description:
+        'Consistently deliver inclusive, accessible experiences through WCAG-compliant design and development.',
     },
     {
-      icon: Palette,
-      title: 'UI/UX Design',
-      description: 'Creating beautiful, intuitive interfaces with focus on user experience.',
+      icon: Code2,
+      title: 'Dynamic Design Systems',
+      description:
+        'Experienced at Designing flexible, token-based systems to enable theming, white labeling, and cross-platform consistency.',
     },
   ];
 
@@ -71,7 +61,6 @@ const About = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
         >
-          {/* Section Header */}
           <motion.div className="about__header" variants={itemVariants}>
             <h2 className="about__title">About Me</h2>
             <p className="about__subtitle">
@@ -79,9 +68,7 @@ const About = () => {
             </p>
           </motion.div>
 
-          {/* Main Content Grid */}
           <div className="about__grid">
-            {/* Personal Info */}
             <motion.div className="about__personal" variants={itemVariants}>
               <div className="about__image-container">
                 <img
@@ -90,10 +77,12 @@ const About = () => {
                   className="about__image"
                 />
                 <div className="about__image-overlay">
-                  <div className="about__image-badge">
-                    <span>💼</span>
-                    <span>Available for hire</span>
-                  </div>
+                  {personalInfo.forHire && (
+                    <div className="about__image-badge">
+                      <span>💼</span>
+                      <span>Available for hire</span>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -147,42 +136,12 @@ const About = () => {
               </div>
             </motion.div>
 
-            {/* Skills Section */}
             <motion.div className="about__skills" variants={itemVariants}>
               <h3 className="about__skills-title">Technical Skills</h3>
               <SkillsChart skills={skills} />
             </motion.div>
           </div>
 
-          {/* Stats Section */}
-          <motion.div className="about__stats" variants={itemVariants}>
-            <div className="about__stats-grid">
-              {stats.map((stat, index) => {
-                const IconComponent = stat.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    className={`about__stat about__stat--${stat.color}`}
-                    variants={itemVariants}
-                    whileHover={{
-                      scale: 1.05,
-                      transition: { duration: 0.2 },
-                    }}
-                  >
-                    <div className="about__stat-icon">
-                      <IconComponent size={32} />
-                    </div>
-                    <div className="about__stat-content">
-                      <div className="about__stat-value">{stat.value}</div>
-                      <div className="about__stat-label">{stat.label}</div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </motion.div>
-
-          {/* Highlights Section */}
           <motion.div className="about__highlights" variants={itemVariants}>
             <h3 className="about__highlights-title">What I Do Best</h3>
             <div className="about__highlights-grid">
@@ -209,14 +168,13 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Philosophy Section */}
           <motion.div className="about__philosophy" variants={itemVariants}>
             <div className="about__philosophy-content">
               <blockquote className="about__quote">
-                "Code is not just about solving problems—it's about creating possibilities. Every
-                line of code is an opportunity to make someone's life a little bit better."
+                If we want users to like our software, we should design it to behave like a likable
+                person.
               </blockquote>
-              <cite className="about__quote-author">— My Development Philosophy</cite>
+              <cite className="about__quote-author">- Alan Cooper</cite>
             </div>
           </motion.div>
         </motion.div>

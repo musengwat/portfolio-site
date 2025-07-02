@@ -331,6 +331,7 @@
 }
 
 .about__highlight-description {
+  text-align: bottom;
   color: var(--color-text-secondary);
   line-height: var(--line-height-relaxed);
 }
