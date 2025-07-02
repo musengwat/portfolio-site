@@ -1,11 +1,11 @@
 // portfolio-frontend/src/components/Contact/Contact.jsx
-import React from "react";
-import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
-import ContactForm from "./ContactForm";
-import SocialLinks from "./SocialLinks";
-import { personalInfo } from "../../data/skills";
-import "./Contact.css";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import ContactForm from './ContactForm';
+import SocialLinks from './SocialLinks';
+import { personalInfo } from '../../data/skills';
+import './Contact.css';
 
 const Contact = () => {
   const containerVariants = {
@@ -13,20 +13,20 @@ const Contact = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
         delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 48 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   };
@@ -34,31 +34,29 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
-      label: "Email",
+      label: 'Email',
       value: personalInfo.email,
       href: `mailto:${personalInfo.email}`,
-      description: "Send me an email anytime",
+      description: 'Send me an email anytime',
     },
     {
       icon: Phone,
-      label: "Phone",
+      label: 'Phone',
       value: personalInfo.phone,
       href: `tel:${personalInfo.phone}`,
-      description: "Call during business hours",
     },
     {
       icon: MapPin,
-      label: "Location",
+      label: 'Location',
       value: personalInfo.location,
       href: null,
-      description: "Based in California",
     },
     {
       icon: Clock,
-      label: "Timezone",
+      label: 'Timezone',
       value: personalInfo.timezone,
       href: null,
-      description: "Pacific Standard Time",
+      description: 'Central standard Time',
     },
   ];
 
@@ -76,8 +74,8 @@ const Contact = () => {
           <motion.div className="contact__header" variants={itemVariants}>
             <h2 className="contact__title">Get In Touch</h2>
             <p className="contact__subtitle">
-              Ready to bring your ideas to life? Let's discuss your next project
-              and create something amazing together.
+              Ready to bring your ideas to life? Let's discuss your next project and create
+              something amazing together.
             </p>
           </motion.div>
 
@@ -88,9 +86,9 @@ const Contact = () => {
               <div className="contact__info-content">
                 <h3 className="contact__info-title">Let's Connect</h3>
                 <p className="contact__info-description">
-                  I'm always excited to take on new challenges and collaborate
-                  with passionate teams. Whether you have a project in mind or
-                  just want to say hello, I'd love to hear from you.
+                  I'm always excited to take on new challenges and collaborate with passionate
+                  teams. Whether you have a project in mind or just want to say hello, I'd love to
+                  hear from you.
                 </p>
 
                 {/* Contact Details */}
@@ -111,15 +109,9 @@ const Contact = () => {
                           <IconComponent size={20} />
                         </div>
                         <div className="contact__detail-content">
-                          <span className="contact__detail-label">
-                            {item.label}
-                          </span>
-                          <span className="contact__detail-value">
-                            {item.value}
-                          </span>
-                          <span className="contact__detail-description">
-                            {item.description}
-                          </span>
+                          <span className="contact__detail-label">{item.label}</span>
+                          <span className="contact__detail-value">{item.value}</span>
+                          <span className="contact__detail-description">{item.description}</span>
                         </div>
                       </motion.div>
                     );
@@ -146,15 +138,10 @@ const Contact = () => {
                 </motion.div>
 
                 {/* Availability Status */}
-                <motion.div
-                  className="contact__availability"
-                  variants={itemVariants}
-                >
+                <motion.div className="contact__availability" variants={itemVariants}>
                   <div className="contact__availability-indicator">
                     <div className="contact__availability-dot"></div>
-                    <span className="contact__availability-text">
-                      {personalInfo.availability}
-                    </span>
+                    <span className="contact__availability-text">{personalInfo.availability}</span>
                   </div>
                   <p className="contact__availability-description">
                     Currently accepting new projects and collaborations
@@ -164,10 +151,7 @@ const Contact = () => {
             </motion.div>
 
             {/* Contact Form */}
-            <motion.div
-              className="contact__form-container"
-              variants={itemVariants}
-            >
+            <motion.div className="contact__form-container" variants={itemVariants}>
               <ContactForm />
             </motion.div>
           </div>
@@ -178,8 +162,7 @@ const Contact = () => {
               <div className="contact__additional-item">
                 <h4 className="contact__additional-title">Response Time</h4>
                 <p className="contact__additional-text">
-                  I typically respond to emails within 24 hours during business
-                  days.
+                  I typically respond to emails within 24 hours during business days.
                 </p>
               </div>
 
@@ -193,8 +176,7 @@ const Contact = () => {
               <div className="contact__additional-item">
                 <h4 className="contact__additional-title">Free Consultation</h4>
                 <p className="contact__additional-text">
-                  30-minute discovery call to discuss your project needs and
-                  goals.
+                  30-minute discovery call to discuss your project needs and goals.
                 </p>
               </div>
             </div>
@@ -203,12 +185,9 @@ const Contact = () => {
           {/* CTA Section */}
           <motion.div className="contact__cta" variants={itemVariants}>
             <div className="contact__cta-content">
-              <h3 className="contact__cta-title">
-                Ready to Start Your Project?
-              </h3>
+              <h3 className="contact__cta-title">Ready to Start Your Project?</h3>
               <p className="contact__cta-description">
-                Let's schedule a call to discuss your vision and how we can
-                bring it to life.
+                Let's schedule a call to discuss your vision and how we can bring it to life.
               </p>
               <div className="contact__cta-actions">
                 <a

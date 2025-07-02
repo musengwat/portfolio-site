@@ -172,7 +172,7 @@ const Resume = () => {
           </motion.div>
 
           {/* Section Navigation */}
-          <motion.div className="resume__nav" variants={itemVariants}>
+          {/* <motion.div className="resume__nav" variants={itemVariants}>
             {sections.map(section => {
               const IconComponent = section.icon;
               return (
@@ -189,7 +189,7 @@ const Resume = () => {
                 </button>
               );
             })}
-          </motion.div>
+          </motion.div> */}
 
           {/* Section Content */}
           <motion.div
@@ -219,17 +219,8 @@ const Resume = () => {
                 <div className="resume__additional-content">
                   <h4 className="resume__additional-title">Availability</h4>
                   <p className="resume__additional-text">{personalInfo.availability}</p>
-                  <span className="resume__additional-detail">Ready to start new projects</span>
-                </div>
-              </div>
-
-              <div className="resume__additional-item">
-                <Award size={24} className="resume__additional-icon" />
-                <div className="resume__additional-content">
-                  <h4 className="resume__additional-title">Certifications</h4>
-                  <p className="resume__additional-text">{certificationsData.length} Active</p>
-                  <span className="resume__additional-detail">
-                    AWS, React, Google Cloud certified
+                  <span style={{ color: 'green' }} className="resume__additional-detail">
+                    Ready to start new projects
                   </span>
                 </div>
               </div>

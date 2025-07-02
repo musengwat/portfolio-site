@@ -70,7 +70,7 @@ export const experienceData = [
     companyInfo: {
       industry: 'Technology Consulting',
       size: '500-1000 employees',
-      website: 'https://ruralsourcing.com',
+      website: 'https://www.teamsparq.com/',
     },
   },
   {
@@ -173,7 +173,7 @@ export const experienceData = [
     companyInfo: {
       industry: 'Retail Technology',
       size: '10,000+ employees',
-      website: 'https://walmartlabs.com',
+      website: 'https://tech.walmart.com',
     },
   },
 ];
