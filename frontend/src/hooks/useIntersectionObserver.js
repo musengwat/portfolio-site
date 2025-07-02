@@ -14,7 +14,6 @@ export const useIntersectionObserver = (options = {}) => {
       ([entry]) => {
         const intersecting = entry.isIntersecting;
         setIsIntersecting(intersecting);
-        console.log(element.id, intersecting, 'isIntersecting', hasIntersected, 'hasIntersected');
 
         // Once intersected, keep it true (for animations that should only happen once)
         if (intersecting && !hasIntersected) {

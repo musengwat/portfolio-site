@@ -1,7 +1,7 @@
 // portfolio-frontend/src/components/Portfolio/FilterTabs.jsx
-import React from "react";
-import { motion } from "framer-motion";
-import "./FilterTabs.css";
+import React from 'react';
+import { motion } from 'framer-motion';
+import './FilterTabs.css';
 
 const FilterTabs = ({ categories, selectedFilter, onFilterChange }) => {
   const tabVariants = {
@@ -32,39 +32,34 @@ const FilterTabs = ({ categories, selectedFilter, onFilterChange }) => {
       initial="hidden"
       animate="visible"
     >
-      <div className="filter-tabs__container">
-        {categories.map((category) => (
-          <motion.button
-            key={category.id}
-            className={`filter-tabs__tab ${
-              selectedFilter === category.id ? "filter-tabs__tab--active" : ""
-            }`}
-            onClick={() => onFilterChange(category.id)}
-            variants={tabVariants}
-            whileHover={{
-              scale: 1.05,
-              transition: { duration: 0.2 },
-            }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="filter-tabs__label">{category.label}</span>
-            <span className="filter-tabs__count">{category.count}</span>
+      {categories.map(category => (
+        <motion.button
+          key={category.id}
+          className={`filter-tab ${selectedFilter === category.id && 'filter-tab--active'}`}
+          onClick={() => onFilterChange(category.id)}
+          variants={tabVariants}
+          whileHover={{
+            scale: 1.05,
+            transition: { duration: 0.2 },
+          }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <span className="filter-tabs__label">{category.label}:</span>
+          <span className="filter-tab__count">{category.count}</span>
 
-            {/* Active indicator */}
-            {selectedFilter === category.id && (
-              <motion.div
-                className="filter-tabs__indicator"
-                layoutId="activeTab"
-                transition={{
-                  type: "spring",
-                  stiffness: 380,
-                  damping: 30,
-                }}
-              />
-            )}
-          </motion.button>
-        ))}
-      </div>
+          {selectedFilter === category.id && (
+            <motion.div
+              className="filter-tabs__indicator"
+              layoutId="activeTab"
+              transition={{
+                type: 'spring',
+                stiffness: 380,
+                damping: 30,
+              }}
+            />
+          )}
+        </motion.button>
+      ))}
     </motion.div>
   );
 };

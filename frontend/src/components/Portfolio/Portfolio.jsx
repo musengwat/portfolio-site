@@ -1,7 +1,7 @@
 // portfolio-frontend/src/components/Portfolio/Portfolio.jsx
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Filter, Grid, List } from 'lucide-react';
+import { Search, Grid, List } from 'lucide-react';
 import ProjectCard from './ProjectCard';
 import FilterTabs from './FilterTabs';
 import { projects, categories, getProjectsByCategory } from '../../data/projects';
@@ -12,15 +12,14 @@ const Portfolio = () => {
   const { state, setPortfolioFilter } = useApp();
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const [searchTerm, setSearchTerm] = useState('');
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
-  const [sortBy, setSortBy] = useState('recent'); // 'recent', 'name', 'featured'
+  const [viewMode, setViewMode] = useState('grid');
+  const [sortBy, setSortBy] = useState('recent');
 
   const selectedFilter = state.portfolio.selectedFilter;
 
   useEffect(() => {
     let filtered = getProjectsByCategory(selectedFilter);
 
-    // Apply search filter
     if (searchTerm) {
       filtered = filtered.filter(
         project =>
@@ -30,7 +29,6 @@ const Portfolio = () => {
       );
     }
 
-    // Apply sorting
     switch (sortBy) {
       case 'name':
         filtered = [...filtered].sort((a, b) => a.title.localeCompare(b.title));
@@ -91,17 +89,14 @@ const Portfolio = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          {/* Section Header */}
           <motion.div className="portfolio__header" variants={itemVariants}>
             <h2 className="portfolio__title">My Portfolio</h2>
             <p className="portfolio__subtitle">
-              A collection of projects that showcase my skills and passion for development
+              A collection of projects that showcase my skills and passion
             </p>
           </motion.div>
 
-          {/* Controls */}
           <motion.div className="portfolio__controls" variants={itemVariants}>
-            {/* Search and Sort */}
             <div className="portfolio__search-sort">
               <div className="portfolio__search">
                 <Search size={20} className="portfolio__search-icon" />
@@ -152,7 +147,6 @@ const Portfolio = () => {
             />
           </motion.div>
 
-          {/* Results Info */}
           <motion.div className="portfolio__results-info" variants={itemVariants}>
             <p className="portfolio__results-text">
               Showing {filteredProjects.length} of {projects.length} projects
@@ -166,14 +160,12 @@ const Portfolio = () => {
             )}
           </motion.div>
 
-          {/* Projects Grid */}
           <motion.div
             className={`portfolio__grid portfolio__grid--${viewMode}`}
             variants={containerVariants}
             layout
           >
             <AnimatePresence>
-              {' '}
               {filteredProjects.map((project, index) => (
                 <motion.div
                   key={project.id}

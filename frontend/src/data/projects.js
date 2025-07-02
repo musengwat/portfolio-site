@@ -6,20 +6,30 @@ export const projects = [
     description:
       'A flexible, scalable React Native component library adopted across UnitedHealth Group and its subsidiaries. Features a three-tier design token system, 80+ components, and white labeling capabilities.',
     shortDescription: 'Enterprise React Native component library saving $2M+ annually',
-    image: '/assets/images/projects/abyss-mobile.jpg',
+    image: '/assets/images/projects/abyss/abyss-mobile.png',
     images: [
-      '/assets/images/projects/abyss-mobile.jpg',
-      '/assets/images/projects/abyss-detail-1.jpg',
-      '/assets/images/projects/abyss-detail-2.jpg',
+      '/assets/images/projects/abyss/abyss-mobile.png',
+      '/assets/images/projects/abyss/abyss-details-1.png',
+      '/assets/images/projects/abyss/abyss-details-2.png',
+      '/assets/images/projects/abyss/abyss-details-3.png',
+      '/assets/images/projects/abyss/abyss-details-4.png',
+      '/assets/images/projects/abyss/abyss-details-5.png',
+      '/assets/images/projects/abyss/abyss-details-6.png',
+      '/assets/images/projects/abyss/abyss-details-7.png',
+      '/assets/images/projects/abyss/abyss-details-8.png',
     ],
     technologies: [
       'React Native',
       'TypeScript',
       'Figma',
       'Figma Token Studio',
+      'Figma Code Connect',
       'Emotion Native',
       'CI/CD',
       'Jest',
+      'Firebase',
+      'Sauce Labs',
+      'Monorepo',
     ],
     category: 'mobile',
     featured: true,
@@ -27,13 +37,15 @@ export const projects = [
     githubUrl: null,
     status: 'completed',
     startDate: '2023-01-15',
-    endDate: null,
+    endDate: '2025-07-31',
     client: 'Optum Health / UnitedHealth Group',
     challenges: [
       'Supporting both house of brands and branded house architectures',
       'Implementing white labeling capability across 3 base brands',
       'Ensuring WCAG 2.2 compliance for all components',
       'Token hierarchy allowing overwrites at any level',
+      'WCAG A11y development & automated E2E testing',
+      'CI/CD Pipelines automated builds with internal artifactories',
     ],
     features: [
       '80+ accessible components',
@@ -47,7 +59,7 @@ export const projects = [
     ],
     metrics: {
       savings: '$2M+ annually',
-      devHours: '50,000+ saved',
+      'Dev Hours': '50,000+ saved',
       components: '80+',
     },
   },
@@ -57,10 +69,10 @@ export const projects = [
     description:
       'A modern, responsive portfolio website showcasing professional work and creative projects. Built with modern web technologies for optimal performance and user experience.',
     shortDescription: 'Professional portfolio website with modern design',
-    image: '/assets/images/projects/hunter-cooke.jpg',
+    image: '/assets/images/projects/hunter-cooke-site/hunter-cooke.PNG',
     images: [
-      '/assets/images/projects/hunter-cooke.jpg',
-      '/assets/images/projects/hunter-detail-1.jpg',
+      '/assets/images/projects/hunter-cooke-site/hunter-cooke.PNG',
+      '/assets/images/projects/hunter-cooke-site/hunter-detail-1.PNG',
     ],
     technologies: ['React', 'JavaScript', 'CSS3', 'HTML5', 'Responsive Design'],
     category: 'frontend',
@@ -397,6 +409,11 @@ export const projects = [
 export const categories = [
   { id: 'all', label: 'All Projects', count: projects.length },
   {
+    id: 'mobile',
+    label: 'Mobile',
+    count: projects.filter(p => p.category === 'mobile').length,
+  },
+  {
     id: 'frontend',
     label: 'Frontend',
     count: projects.filter(p => p.category === 'frontend').length,
@@ -410,12 +427,6 @@ export const categories = [
     id: 'fullstack',
     label: 'Full Stack',
     count: projects.filter(p => p.category === 'fullstack').length,
-  },
-
-  {
-    id: 'mobile',
-    label: 'Mobile',
-    count: projects.filter(p => p.category === 'mobile').length,
   },
 ];
 

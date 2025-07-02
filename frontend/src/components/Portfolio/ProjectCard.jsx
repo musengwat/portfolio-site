@@ -57,7 +57,6 @@ const ProjectCard = ({ project, viewMode = 'grid', index = 0 }) => {
       whileTap={{ scale: 0.98 }}
       onClick={() => navigate(`/project/${project.id}`)}
     >
-      {/* Featured Badge */}
       {project.featured && (
         <div className="project-card__badge project-card__badge--featured">
           <Star size={14} />
