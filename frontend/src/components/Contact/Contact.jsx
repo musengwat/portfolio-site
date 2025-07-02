@@ -157,7 +157,7 @@ const Contact = () => {
           </div>
 
           {/* Additional Info */}
-          <motion.div className="contact__additional" variants={itemVariants}>
+          {/* <motion.div className="contact__additional" variants={itemVariants}>
             <div className="contact__additional-grid">
               <div className="contact__additional-item">
                 <h4 className="contact__additional-title">Response Time</h4>
@@ -180,7 +180,7 @@ const Contact = () => {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* CTA Section */}
           <motion.div className="contact__cta" variants={itemVariants}>
