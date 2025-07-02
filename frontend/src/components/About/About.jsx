@@ -69,7 +69,7 @@ const About = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           {/* Section Header */}
           <motion.div className="about__header" variants={itemVariants}>
@@ -85,7 +85,7 @@ const About = () => {
             <motion.div className="about__personal" variants={itemVariants}>
               <div className="about__image-container">
                 <img
-                  src="/assets/images/about-photo.jpg"
+                  src={'/assets/images/profile-photo.JPG'}
                   alt="Thomas Musengwa working"
                   className="about__image"
                 />
@@ -97,20 +97,37 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="about__bio">
-                <h3 className="about__bio-title">Hello! I'm Thomas Musengwa</h3>
-                <p className="about__bio-text">
-                  I'm a passionate full-stack developer with {personalInfo.experience} years of
-                  experience creating digital solutions that drive business growth. I specialize in
-                  modern web technologies and love turning complex problems into simple, beautiful
-                  designs.
-                </p>
-                <p className="about__bio-text">
-                  When I'm not coding, you'll find me exploring new technologies, contributing to
-                  open-source projects, or mentoring fellow developers. I believe in writing clean,
-                  maintainable code and creating applications that users love.
-                </p>
-
+              <div
+                style={{
+                  display: 'flex',
+                  height: '100%',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <div>
+                  <h3 className="about__bio-title">Hello! I'm Thomas Musengwa</h3>
+                  <p className="about__bio-text">
+                    I'm a passionate full-stack developer with {personalInfo.experience} years of
+                    experience crafting digital experiences that drive business growth. My
+                    specialization is in building web & mobile products to transform complex
+                    challenges into elegant, accessible solutions that delight users and empower
+                    development teams. I believe in writing clean, maintainable code and creating
+                    applications that users love.
+                  </p>
+                  <p className="about__bio-text">
+                    From Walmart's pickup towers to UnitedHealth's design systems, I've delivered
+                    high-impact applications that transform how millions of users interact with
+                    technology. Additionally, my efforts have saved my employers over 50,000
+                    development hours, over $7 million in labor costs and over 3 million customer
+                    hours.
+                  </p>
+                  <p className="about__bio-text">
+                    When I'm not coding, you'll find me exploring the gorgeous scenery of Northwest
+                    Arkansas, working on my 15' Chevy SS, or organizing pick-up games of
+                    Counter-Strike 2.
+                  </p>
+                </div>
                 <div className="about__bio-details">
                   <div className="about__detail">
                     <span className="about__detail-label">Location:</span>

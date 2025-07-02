@@ -109,8 +109,8 @@ const Hero = () => {
           </motion.div>
 
           <motion.p className="hero__description" variants={itemVariants}>
-            I craft beautiful, responsive web applications with modern technologies. Passionate
-            about creating exceptional user experiences and scalable solutions.
+            I craft beautiful, responsive web & mobile applications with modern technologies.
+            Passionate about creating exceptional user experiences and scalable solutions.
           </motion.p>
 
           <motion.div className="hero__cta" variants={itemVariants}>
@@ -194,7 +194,7 @@ const Hero = () => {
         >
           <div className="hero__image-container">
             <img
-              src="/assets/images/hero-photo.jpg"
+              src={'/assets/images/profile-photo.JPG'}
               alt="Thomas Musengwa - Full Stack Developer"
               className="hero__profile-image"
               loading="eager"
