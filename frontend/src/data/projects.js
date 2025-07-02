@@ -35,7 +35,7 @@ export const projects = [
     featured: true,
     liveUrl: null,
     githubUrl: null,
-    status: 'completed',
+    status: 'in progress',
     startDate: '2023-01-15',
     endDate: '2025-07-31',
     client: 'Optum Health / UnitedHealth Group',
