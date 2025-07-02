@@ -108,11 +108,8 @@ export const projects = [
     description:
       'A comprehensive business website for Ball Metal Fabrication showcasing their services, portfolio, and facilitating customer engagement with modern design and functionality.',
     shortDescription: 'Industrial business website with service showcase',
-    image: '/assets/images/projects/ball-metal-fab.jpg',
-    images: [
-      '/assets/images/projects/ball-metal-fab.jpg',
-      '/assets/images/projects/bmf-detail-1.jpg',
-    ],
+    image: '/assets/images/projects/ball-metal-fab/ball-metal-fab.jpg',
+    images: ['/assets/images/projects/ball-metal-fab/ball-metal-fab.jpg'],
     technologies: ['React', 'JavaScript', 'CSS3', 'SEO', 'Responsive Design'],
     category: 'frontend',
     featured: true,
@@ -147,8 +144,11 @@ export const projects = [
     description:
       'Redesigned and developed the user interface for Walmart pickup tower progress screens, improving customer experience and saving millions in labor costs and customer hours.',
     shortDescription: 'Revolutionary pickup tower interface saving $1M+ annually',
-    image: '/assets/images/projects/walmart-pickup.jpg',
-    images: ['/assets/images/projects/walmart-pickup.jpg'],
+    image: '/assets/images/projects/walmart-pickup-towers/walmart-pickup.webp',
+    images: [
+      '/assets/images/projects/walmart-pickup-towers/walmart-pickup.webp',
+      '/assets/images/projects/walmart-pickup-towers/walmart-details-1.jpeg',
+    ],
     technologies: ['ReactJS', 'JavaScript', 'CSS3', 'User Experience Design'],
     category: 'frontend',
     featured: true,
@@ -183,8 +183,8 @@ export const projects = [
     description:
       'Developed APIs and systems to optimize truck loading for Tyson Foods, ensuring compliance with regulations and improving delivery efficiency by 30%.',
     shortDescription: 'Logistics optimization platform improving efficiency by 30%',
-    image: '/assets/images/projects/project-win.jpg',
-    images: ['/assets/images/projects/project-win.jpg'],
+    image: '/assets/images/projects/project-win/project-win.jpg',
+    images: ['/assets/images/projects/project-win/project-win.jpg'],
     technologies: ['NodeJS', 'Sequelize', 'PostgreSQL', 'Express', 'API Development'],
     category: 'backend',
     featured: true,
@@ -219,8 +219,8 @@ export const projects = [
     description:
       'A ReactJS-based mobile application for Walmart Store management to monitor KPIs, schedules, and essential information, saving $4 million annually.',
     shortDescription: 'Store management KPI dashboard saving $4M annually',
-    image: '/assets/images/projects/metrics-matter.jpg',
-    images: ['/assets/images/projects/metrics-matter.jpg'],
+    image: '/assets/images/projects/metrics-matter/metrics-matter.jpg',
+    images: ['/assets/images/projects/metrics-matter/metrics-matter.jpg'],
     technologies: ['ReactJS', 'React Native', 'Redux', 'Chart.js', 'API Integration'],
     category: 'mobile',
     featured: false,
@@ -255,7 +255,7 @@ export const projects = [
     description:
       'Rapidly developed front-end to automate random COVID testing scheduling for Tyson Foods associates, streamlining health and safety protocols.',
     shortDescription: 'Automated COVID testing scheduler for enterprise',
-    image: '/assets/images/projects/covid-testing.jpg',
+    image: '/assets/images/projects/covid-testing/covid-testing.jpg',
     images: ['/assets/images/projects/covid-testing.jpg'],
     technologies: ['ReactJS', 'NodeJS', 'PostgreSQL', 'Calendar Integration', 'Email Automation'],
     category: 'fullstack',
@@ -291,8 +291,8 @@ export const projects = [
     description:
       'Comprehensive portal for delivering diffraction data, reducing delivery time by 2 weeks per order through AWS integration and streamlined workflows.',
     shortDescription: 'Scientific data delivery portal with AWS integration',
-    image: '/assets/images/projects/icdd-portal.jpg',
-    images: ['/assets/images/projects/icdd-portal.jpg'],
+    image: '/assets/images/projects/icdd/icdd.PNG',
+    images: ['/assets/images/projects/icdd/icdd.PNG'],
     technologies: ['ReactJS', 'NodeJS', 'AWS S3', 'AWS Cognito', 'PostgreSQL', 'Express'],
     category: 'fullstack',
     featured: false,
@@ -327,8 +327,13 @@ export const projects = [
     description:
       'Customer-oriented vehicle leasing application integrating maintenance, repairs, insurance, and services using React Native with real-time updates.',
     shortDescription: 'All-in-one vehicle leasing and management app',
-    image: '/assets/images/projects/avva-app.jpg',
-    images: ['/assets/images/projects/avva-app.jpg'],
+    image: '/assets/images/projects/avva/avva-app.webp',
+    images: [
+      '/assets/images/projects/avva/avva-app.webp',
+      '/assets/images/projects/avva/avva-details-1.webp',
+      '/assets/images/projects/avva/avva-details-2.webp',
+      '/assets/images/projects/avva/avva-details-3.webp',
+    ],
     technologies: ['React Native', 'TypeScript', 'SWR', 'REST APIs', 'Push Notifications'],
     category: 'mobile',
     featured: false,

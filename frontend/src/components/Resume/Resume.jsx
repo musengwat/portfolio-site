@@ -22,7 +22,7 @@ const Resume = () => {
   const [activeSection, setActiveSection] = useState('experience');
 
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, y: 48 },
     visible: {
       opacity: 1,
       transition: {
@@ -125,7 +125,7 @@ const Resume = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           {/* Section Header */}
           <motion.div className="resume__header" variants={itemVariants}>
@@ -143,15 +143,15 @@ const Resume = () => {
                   {personalInfo.title} • {personalInfo.experience} Years Experience
                 </h3>
                 <p className="resume__summary-description">
-                  Passionate full-stack developer with expertise in modern web technologies. Proven
+                  Full-stack developer with expertise in modern web & mobile technologies. Proven
                   track record of delivering scalable applications and leading development teams.
                   Focused on creating exceptional user experiences and efficient, maintainable code.
                 </p>
                 <div className="resume__summary-highlights">
-                  <span className="resume__summary-highlight">React & Node.js Expert</span>
-                  <span className="resume__summary-highlight">Cloud Architecture</span>
+                  <span className="resume__summary-highlight">React & React Native Expert</span>
                   <span className="resume__summary-highlight">Team Leadership</span>
                   <span className="resume__summary-highlight">Agile Development</span>
+                  <span className="resume__summary-highlight">Node.js Expert</span>
                 </div>
               </div>
 
@@ -172,25 +172,23 @@ const Resume = () => {
           </motion.div>
 
           {/* Section Navigation */}
-          <motion.div className="resume__navigation" variants={itemVariants}>
-            <div className="resume__nav-tabs">
-              {sections.map(section => {
-                const IconComponent = section.icon;
-                return (
-                  <button
-                    key={section.id}
-                    className={`resume__nav-tab ${
-                      activeSection === section.id ? 'resume__nav-tab--active' : ''
-                    }`}
-                    onClick={() => setActiveSection(section.id)}
-                  >
-                    {IconComponent && <IconComponent size={20} />}
-                    <span className="resume__nav-label">{section.label}</span>
-                    {section.count && <span className="resume__nav-count">{section.count}</span>}
-                  </button>
-                );
-              })}
-            </div>
+          <motion.div className="resume__nav" variants={itemVariants}>
+            {sections.map(section => {
+              const IconComponent = section.icon;
+              return (
+                <button
+                  key={section.id}
+                  className={`resume__nav-item ${
+                    activeSection === section.id && 'resume__nav-item--active'
+                  }`}
+                  onClick={() => setActiveSection(section.id)}
+                >
+                  {IconComponent && <IconComponent size={20} />}
+                  <span className="resume__nav-label">{section.label}</span>
+                  {section.count && <span className="resume__nav-count">{section.count}</span>}
+                </button>
+              );
+            })}
           </motion.div>
 
           {/* Section Content */}

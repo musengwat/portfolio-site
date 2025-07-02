@@ -87,7 +87,7 @@ const Portfolio = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           <motion.div className="portfolio__header" variants={itemVariants}>
             <h2 className="portfolio__title">My Portfolio</h2>
@@ -182,14 +182,12 @@ const Portfolio = () => {
             </AnimatePresence>
           </motion.div>
 
-          {/* Load More Button */}
-          {filteredProjects.length >= 6 && (
+          {/* {filteredProjects.length >= 6 && (
             <motion.div className="portfolio__load-more" variants={itemVariants}>
               <button className="portfolio__load-more-btn">Load More Projects</button>
             </motion.div>
-          )}
+          )} */}
 
-          {/* Featured Projects CTA */}
           <motion.div className="portfolio__cta" variants={itemVariants}>
             <div className="portfolio__cta-content">
               <h3 className="portfolio__cta-title">Interested in working together?</h3>
@@ -208,7 +206,7 @@ const Portfolio = () => {
               </button>
             </div>
           </motion.div>
-        </motion.div>{' '}
+        </motion.div>
       </div>
     </section>
   );
