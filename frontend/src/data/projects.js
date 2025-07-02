@@ -108,8 +108,11 @@ export const projects = [
     description:
       'A comprehensive business website for Ball Metal Fabrication showcasing their services, portfolio, and facilitating customer engagement with modern design and functionality.',
     shortDescription: 'Industrial business website with service showcase',
-    image: '/assets/images/projects/ball-metal-fab/ball-metal-fab.jpg',
-    images: ['/assets/images/projects/ball-metal-fab/ball-metal-fab.jpg'],
+    image: '/assets/images/projects/ball-metal-fab/ball-metal-fab.png',
+    images: [
+      '/assets/images/projects/ball-metal-fab/ball-metal-fab.png',
+      '/assets/images/projects/ball-metal-fab/ball-metal-details-1.png',
+    ],
     technologies: ['React', 'JavaScript', 'CSS3', 'SEO', 'Responsive Design'],
     category: 'frontend',
     featured: true,
