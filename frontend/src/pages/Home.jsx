@@ -52,6 +52,10 @@ const Home = () => {
         id="hero"
         className="section"
       >
+        <div className="wip-banner">
+          🚧 This site is still under construction, feel free to look around but some bugs and
+          errors may persist. 🚧
+        </div>
         <Hero />
       </motion.section>
       <motion.section

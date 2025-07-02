@@ -1,9 +1,9 @@
 // portfolio-frontend/src/components/Layout/Layout.jsx
-import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import ScrollIndicator from "../UI/ScrollIndicator/ScrollIndicator";
-import "./Layout.css";
+import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import ScrollIndicator from '../UI/ScrollIndicator/ScrollIndicator';
+import './Layout.css';
 
 const Layout = ({ children }) => {
   return (
