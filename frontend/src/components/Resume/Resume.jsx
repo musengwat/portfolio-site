@@ -218,10 +218,10 @@ const Resume = () => {
                 <Calendar size={24} className="resume__additional-icon" />
                 <div className="resume__additional-content">
                   <h4 className="resume__additional-title">Availability</h4>
-                  <p className="resume__additional-text">{personalInfo.availability}</p>
-                  <span style={{ color: 'green' }} className="resume__additional-detail">
-                    Ready to start new projects
-                  </span>
+                  <p className="resume__additional-text resume__additional-text--available">
+                    {personalInfo.availability}
+                  </p>
+                  <span className="resume__additional-detail">Ready to start new projects</span>
                 </div>
               </div>
             </div>

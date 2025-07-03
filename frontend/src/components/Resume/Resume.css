@@ -343,12 +343,12 @@
   margin-bottom: var(--spacing-2);
 }
 
-.resume__additional-for-hire {
-  color: var(green);
+.resume__additional-text--available {
+  color: var(--color-success-600);
 }
+
 .resume__additional-text {
   font-size: var(--font-size-base);
-  color: var(--color-text-primary);
   font-weight: var(--font-weight-medium);
   margin-bottom: var(--spacing-1);
 }
