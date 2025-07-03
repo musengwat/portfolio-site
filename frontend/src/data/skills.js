@@ -214,12 +214,6 @@ export const skills = {
       description: 'Unit testing, integration testing, and 95%+ code coverage',
     },
     {
-      name: 'Jira',
-      years: 2017,
-      level: 89,
-      description: 'Agile workflows, issue tracking, and code collaboration',
-    },
-    {
       name: 'Figma Code Connect',
       years: 2024,
       level: 87,
@@ -228,8 +222,9 @@ export const skills = {
     {
       name: 'E2E Testing',
       years: 2020,
-      level: 79,
-      description: 'Automated testing, cross-browser testing, and QA pipelines',
+      level: 83,
+      description:
+        'Automated testing, cross-browser testing, in playwright, appium, Webdriver.io & sauce labs',
     },
     {
       name: 'Figma',
