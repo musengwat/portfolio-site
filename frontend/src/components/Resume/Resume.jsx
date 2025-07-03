@@ -110,10 +110,10 @@ const Resume = () => {
             ))}
           </div>
         );
-      case 'skills':
-        return <SkillsChart skills={skills} />;
-      default:
-        return null;
+      // case 'skills':
+      //   return <SkillsChart skills={skills} />;
+      // default:
+      //   return null;
     }
   };
 

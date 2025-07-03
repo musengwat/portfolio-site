@@ -10,6 +10,18 @@ import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { trackPageView } from '../services/analytics';
 import './Home.css';
 
+const sectionVariants = {
+  hidden: { opacity: 0.2, y: 48 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: 'easeOut',
+    },
+  },
+};
+
 const Home = () => {
   const [heroRef, heroInView] = useIntersectionObserver();
   const [aboutRef, aboutInView] = useIntersectionObserver();
@@ -30,26 +42,14 @@ const Home = () => {
     }
   }, []);
 
-  const sectionVariants = {
-    hidden: { opacity: 0.2, y: 48 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: 'easeOut',
-      },
-    },
-  };
-
   return (
     <main className="home">
       <motion.section
-        ref={heroRef}
-        initial="hidden"
-        animate={heroInView ? 'visible' : 'hidden'}
-        variants={sectionVariants}
         id="hero"
+        ref={heroRef}
+        animate={heroInView ? 'visible' : 'hidden'}
+        initial="hidden"
+        variants={sectionVariants}
         className="section"
       >
         <div className="wip-banner">
@@ -59,41 +59,41 @@ const Home = () => {
         <Hero />
       </motion.section>
       <motion.section
-        ref={aboutRef}
-        initial="hidden"
-        animate={aboutInView ? 'visible' : 'hidden'}
-        variants={sectionVariants}
         id="about"
+        ref={aboutRef}
+        animate={aboutInView ? 'visible' : 'hidden'}
+        initial="hidden"
+        variants={sectionVariants}
         className="section"
       >
         <About />
       </motion.section>
       <motion.section
-        ref={portfolioRef}
-        initial="hidden"
-        animate={portfolioInView ? 'visible' : 'hidden'}
-        variants={sectionVariants}
         id="portfolio"
+        ref={portfolioRef}
+        animate={portfolioInView ? 'visible' : 'hidden'}
+        initial="hidden"
+        variants={sectionVariants}
         className="section"
       >
         <Portfolio />
       </motion.section>
       <motion.section
-        ref={resumeRef}
-        initial="hidden"
-        animate={resumeInView ? 'visible' : 'hidden'}
-        variants={sectionVariants}
         id="resume"
+        ref={resumeRef}
+        animate={resumeInView ? 'visible' : 'hidden'}
+        initial="hidden"
+        variants={sectionVariants}
         className="section"
       >
         <Resume />
       </motion.section>
       <motion.section
-        ref={contactRef}
-        initial="hidden"
-        animate={contactInView ? 'visible' : 'hidden'}
-        variants={sectionVariants}
         id="contact"
+        ref={contactRef}
+        animate={contactInView ? 'visible' : 'hidden'}
+        initial="hidden"
+        variants={sectionVariants}
         className="section"
       >
         <Contact />
