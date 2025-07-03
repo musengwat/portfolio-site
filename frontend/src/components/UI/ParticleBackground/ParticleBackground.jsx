@@ -15,20 +15,18 @@ const ParticleBackground = () => {
     const ctx = canvas.getContext('2d');
     let particles = particlesRef.current;
 
-    // Resize canvas to fit window
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
 
-    // Create particle
     class Particle {
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = Math.random() * 2 + 1;
+        this.vx = (Math.random() - 0.5) * 0.1;
+        this.vy = (Math.random() - 0.5) * 0.1;
+        this.radius = Math.random() * 2.5 + 1;
         this.opacity = Math.random() * 0.5 + 0.2;
         this.pulse = Math.random() * 0.01;
         this.pulseDirection = 1;
@@ -40,8 +38,8 @@ const ParticleBackground = () => {
         this.y += this.vy;
 
         // Bounce off edges
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        if (this.x <= 0 || this.x >= canvas.width) this.vx *= -1;
+        if (this.y <= 0 || this.y >= canvas.height) this.vy *= -1;
 
         // Keep within bounds
         this.x = Math.max(0, Math.min(canvas.width, this.x));
@@ -49,7 +47,7 @@ const ParticleBackground = () => {
 
         // Pulse effect
         this.opacity += this.pulse * this.pulseDirection;
-        if (this.opacity >= 0.7 || this.opacity <= 0.1) {
+        if (this.opacity >= 0.5 || this.opacity <= 0.15) {
           this.pulseDirection *= -1;
         }
 
@@ -63,10 +61,6 @@ const ParticleBackground = () => {
           this.vx += (dx / distance) * force * 0.01;
           this.vy += (dy / distance) * force * 0.01;
         }
-
-        // Damping
-        this.vx *= 0.99;
-        this.vy *= 0.99;
       }
 
       draw() {
@@ -82,10 +76,9 @@ const ParticleBackground = () => {
       }
     }
 
-    // Initialize particles
     const initParticles = () => {
       particles.length = 0;
-      const particleCount = Math.min(100, Math.floor((canvas.width * canvas.height) / 10000));
+      const particleCount = Math.min(150, Math.floor((canvas.width * canvas.height) / 10000));
 
       for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle());
@@ -102,7 +95,7 @@ const ParticleBackground = () => {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < 120) {
-            const opacity = ((120 - distance) / 120) * 0.2;
+            const opacity = ((120 - distance) / 120) * 0.28;
             ctx.globalAlpha = opacity;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
@@ -118,30 +111,24 @@ const ParticleBackground = () => {
       ctx.restore();
     };
 
-    // Animation loop
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Update and draw particles
       particles.forEach(particle => {
         particle.update();
         particle.draw();
       });
 
-      // Draw connections
       drawConnections();
-
       animationRef.current = requestAnimationFrame(animate);
     };
 
-    // Mouse move handler
     const handleMouseMove = e => {
       const rect = canvas.getBoundingClientRect();
       mouseRef.current.x = e.clientX - rect.left;
       mouseRef.current.y = e.clientY - rect.top;
     };
 
-    // Touch move handler for mobile
     const handleTouchMove = e => {
       e.preventDefault();
       const rect = canvas.getBoundingClientRect();
@@ -150,12 +137,10 @@ const ParticleBackground = () => {
       mouseRef.current.y = touch.clientY - rect.top;
     };
 
-    // Initialize
     resizeCanvas();
     initParticles();
     animate();
 
-    // Event listeners
     window.addEventListener('resize', () => {
       resizeCanvas();
       initParticles();
@@ -163,7 +148,6 @@ const ParticleBackground = () => {
     canvas.addEventListener('mousemove', handleMouseMove);
     canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
 
-    // Cleanup
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
@@ -174,7 +158,6 @@ const ParticleBackground = () => {
     };
   }, []);
 
-  // Handle reduced motion preference
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -182,7 +165,6 @@ const ParticleBackground = () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
-      // Clear canvas for reduced motion users
       const canvas = canvasRef.current;
       if (canvas) {
         const ctx = canvas.getContext('2d');

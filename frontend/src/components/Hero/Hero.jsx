@@ -20,7 +20,7 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentRole(prev => (prev + 1) % roles.length);
-    }, 3000);
+    }, 3500);
 
     return () => clearInterval(interval);
   }, [roles.length]);
@@ -87,24 +87,32 @@ const Hero = () => {
         <motion.div className="hero__content" variants={itemVariants}>
           <motion.div className="hero__greeting" variants={itemVariants}>
             <span className="hero__wave">👋</span>
-            <span>Hello, I'm Thomas</span>
+            <motion.span variants={itemVariants}>
+              <AnimatedText
+                text={`Hello, I'm Thomas`}
+                delay={1}
+                duration={0.1}
+                animationType="bounce"
+              />
+            </motion.span>
           </motion.div>
 
-          <motion.h1 className="hero__name" variants={itemVariants}>
-            <AnimatedText text="Thomas Musengwa" />
-          </motion.h1>
+          {/* <motion.h1 class="hero__name" variants={itemVariants}>
+            <AnimatedText text="Thomas " delay={1.5} duration={0.1} animationType="slide" />
+            <AnimatedText text="Musengwa" delay={2} duration={0.1} animationType="slide" />
+          </motion.h1> */}
 
           <motion.div className="hero__role-container" variants={itemVariants}>
             <span className="hero__role-prefix">I'm a </span>
             <motion.span
               key={currentRole}
               className="hero__role"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1 }}
             >
-              {roles[currentRole]}
+              <AnimatedText text={roles[currentRole]} delay={0.2} animationType="fade" />
             </motion.span>
           </motion.div>
 
@@ -163,7 +171,7 @@ const Hero = () => {
             </a>
           </motion.div>
         </motion.div>
-
+        {/* 
         <motion.div
           className="hero__scroll-indicator"
           variants={itemVariants}
@@ -184,12 +192,12 @@ const Hero = () => {
             <ChevronDown size={24} />
             <span>Scroll Down</span>
           </button>
-        </motion.div>
+        </motion.div> */}
 
         <motion.div
           className="hero__image"
           variants={itemVariants}
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.025 }}
           transition={{ duration: 0.3 }}
         >
           <div className="hero__image-container">
