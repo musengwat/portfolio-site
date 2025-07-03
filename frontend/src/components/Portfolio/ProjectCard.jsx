@@ -5,13 +5,101 @@ import { ExternalLink, Github, Calendar, Star, Eye } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import './ProjectCard.css';
 
+const handleExternalClick = (e, url) => {
+  e.stopPropagation();
+  window.open(url, '_blank', 'noopener,noreferrer');
+};
+
+const getStatusColor = status => {
+  switch (status) {
+    case 'completed':
+      return 'success';
+    case 'in-progress':
+      return 'warning';
+    case 'planning':
+      return 'info';
+    default:
+      return 'default';
+  }
+};
+
+const formatDate = dateString => {
+  if (!dateString) return 'Ongoing';
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+  });
+};
+
+const ProjectQuickLinks = ({ project, ...props }) => {
+  return (
+    <div className="project-card__image-actions" {...props}>
+      {project.liveUrl && (
+        <button
+          className="project-card__action-btn project-card__action-btn--external"
+          onClick={e => handleExternalClick(e, project.liveUrl)}
+          aria-label="View live demo"
+        >
+          <ExternalLink size={20} />
+        </button>
+      )}
+
+      {project.githubUrl && (
+        <button
+          className="project-card__action-btn project-card__action-btn--github"
+          onClick={e => handleExternalClick(e, project.githubUrl)}
+          aria-label="View source code"
+        >
+          <Github size={20} />
+        </button>
+      )}
+    </div>
+  );
+};
+
+const StatusBadge = ({ status, ...props }) => {
+  return (
+    <div
+      className={`project-card__badge project-card__badge--status project-card__badge--${getStatusColor(status)}`}
+      {...props}
+    >
+      {status.replace('-', ' ')}
+    </div>
+  );
+};
+
+const FeaturedBadge = ({ ...props }) => {
+  return (
+    <div className="project-card__badge project-card__badge--featured" {...props}>
+      <Star size={14} />
+      <span>Featured</span>
+    </div>
+  );
+};
+
+const DisplayImage = ({ project }) => {
+  return (
+    <>
+      {project.featured && <FeaturedBadge />}
+      <StatusBadge status={project.status} />
+      <div className="project-card__image-container">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="project-card__image"
+          loading="lazy"
+        />
+        <div className="project-card__image-overlay">
+          <ProjectQuickLinks project={project} />
+        </div>
+      </div>
+    </>
+  );
+};
+
 const ProjectCard = ({ project, viewMode = 'grid', index = 0 }) => {
   const navigate = useNavigate();
-  const handleExternalClick = (e, url) => {
-    e.stopPropagation();
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
-
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -23,29 +111,6 @@ const ProjectCard = ({ project, viewMode = 'grid', index = 0 }) => {
       },
     },
   };
-
-  const getStatusColor = status => {
-    switch (status) {
-      case 'completed':
-        return 'success';
-      case 'in-progress':
-        return 'warning';
-      case 'planning':
-        return 'info';
-      default:
-        return 'default';
-    }
-  };
-
-  const formatDate = dateString => {
-    if (!dateString) return 'Ongoing';
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-    });
-  };
-
   return (
     <motion.article
       className={`project-card project-card--${viewMode}`}
@@ -57,59 +122,14 @@ const ProjectCard = ({ project, viewMode = 'grid', index = 0 }) => {
       whileTap={{ scale: 0.98 }}
       onClick={() => navigate(`/project/${project.id}`)}
     >
-      {project.featured && (
-        <div className="project-card__badge project-card__badge--featured">
-          <Star size={14} />
-          <span>Featured</span>
+      {project.image ? (
+        <DisplayImage project={project} />
+      ) : (
+        <div style={{ display: 'flex' }}>
+          {/* <StatusBadge status={project.status} style={{ position: 'relative', left: 0, top: 0 }} /> */}
+          <ProjectQuickLinks project={project} />
         </div>
       )}
-
-      {/* Status Badge */}
-      <div
-        className={`project-card__badge project-card__badge--status project-card__badge--${getStatusColor(project.status)}`}
-      >
-        {project.status.replace('-', ' ')}
-      </div>
-
-      {/* Image */}
-      <div className="project-card__image-container">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="project-card__image"
-          loading="lazy"
-        />
-        <div className="project-card__image-overlay">
-          <div className="project-card__image-actions">
-            <button
-              className="project-card__action-btn project-card__action-btn--view"
-              aria-label="View project details"
-            >
-              <Eye size={20} />
-            </button>
-
-            {project.liveUrl && (
-              <button
-                className="project-card__action-btn project-card__action-btn--external"
-                onClick={e => handleExternalClick(e, project.liveUrl)}
-                aria-label="View live demo"
-              >
-                <ExternalLink size={20} />
-              </button>
-            )}
-
-            {project.githubUrl && (
-              <button
-                className="project-card__action-btn project-card__action-btn--github"
-                onClick={e => handleExternalClick(e, project.githubUrl)}
-                aria-label="View source code"
-              >
-                <Github size={20} />
-              </button>
-            )}
-          </div>
-        </div>
-      </div>
 
       {/* Content */}
       <div className="project-card__content">
