@@ -427,7 +427,7 @@ const ContactForm = () => {
             onBlur={handleInputBlur}
             onFocus={() => handleInputFocus('message')}
             className={`contact-form__textarea ${errors.message ? 'contact-form__textarea--error' : ''} ${focusedField === 'message' ? 'contact-form__textarea--focused' : ''}`}
-            placeholder="Tell me about your project, goals, and any specific requirements..."
+            placeholder="Tell me about your project, goals, or anything else..."
             rows={6}
             required
           />

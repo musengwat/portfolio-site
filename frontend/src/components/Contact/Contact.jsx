@@ -49,13 +49,12 @@ const Contact = () => {
       icon: MapPin,
       label: 'Location',
       value: personalInfo.location,
-      href: null,
+      description: 'Open to relocation',
     },
     {
       icon: Clock,
       label: 'Timezone',
       value: personalInfo.timezone,
-      href: null,
       description: 'Central standard Time',
     },
   ];
@@ -73,10 +72,7 @@ const Contact = () => {
           {/* Section Header */}
           <motion.div className="contact__header" variants={itemVariants}>
             <h2 className="contact__title">Get In Touch</h2>
-            <p className="contact__subtitle">
-              Ready to bring your ideas to life? Let's discuss your next project and create
-              something amazing together.
-            </p>
+            <p className="contact__subtitle">Let's create something amazing together.</p>
           </motion.div>
 
           {/* Main Content Grid */}
@@ -100,10 +96,12 @@ const Contact = () => {
                         key={index}
                         className="contact__detail"
                         variants={itemVariants}
-                        whileHover={{
-                          x: 5,
-                          transition: { duration: 0.2 },
-                        }}
+                        whileHover={
+                          item.href && {
+                            x: 5,
+                            transition: { duration: 0.2 },
+                          }
+                        }
                       >
                         <div className="contact__detail-icon">
                           <IconComponent size={20} />
