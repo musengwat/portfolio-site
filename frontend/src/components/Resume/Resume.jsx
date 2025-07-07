@@ -273,7 +273,7 @@ const Resume = () => {
                 >
                   Get In Touch
                 </Button>
-                <DownloadButton variant="outline" />
+                <DownloadButton />
               </div>
             </div>
           </motion.div>
