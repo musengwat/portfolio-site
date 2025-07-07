@@ -300,9 +300,48 @@
     />
 
     <!-- Security Headers -->
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self';
+       script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://static.hotjar.com 'unsafe-eval' https://cdn.emailjs.com;
+       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+       font-src 'self' https://fonts.gstatic.com; 
+       img-src 'self' data: https:; 
+       connect-src 'self' https://api.thomasmusengwa.me https://www.google-analytics.com https://api.emailjs.com https://cdn.emailjs.com;
+       frame-src 'none'; 
+       object-src 'none'; 
+       base-uri 'self'; 
+       form-action 'self';"
+    />
+     -->
+    <!-- Improved CSP for your portfolio with EmailJS -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://static.hotjar.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.thomasmusengwa.me https://www.google-analytics.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';"
+      content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' 
+      https://www.googletagmanager.com 
+      https://www.google-analytics.com 
+      https://static.hotjar.com 
+      https://cdn.emailjs.com;
+    style-src 'self' 'unsafe-inline' 
+      https://fonts.googleapis.com;
+    font-src 'self' 
+      https://fonts.gstatic.com;
+    img-src 'self' data: https: blob:;
+    connect-src 'self' 
+      https://api.thomasmusengwa.me 
+      https://www.google-analytics.com 
+      https://api.emailjs.com 
+      https://cdn.emailjs.com
+      https://script.hotjar.com
+      https://vars.hotjar.com;
+    frame-src 'none';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    upgrade-insecure-requests;
+  "
     />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-Frame-Options" content="DENY" />

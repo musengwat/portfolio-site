@@ -1,10 +1,10 @@
 // portfolio-frontend/src/components/Contact/ContactForm.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle, AlertCircle, User, Mail, MessageSquare, Briefcase } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import Button from '../UI/Button/Button';
 import { useApp } from '../../context/AppContext';
-import { api } from '../../services/api';
 import { trackFormSubmission } from '../../services/analytics';
 import './ContactForm.css';
 
@@ -22,6 +22,22 @@ const ContactForm = () => {
   });
   const [errors, setErrors] = useState({});
   const [focusedField, setFocusedField] = useState(null);
+
+  // EmailJS configuration
+  const EMAILJS_CONFIG = {
+    serviceId: 'service_kk1zzgv',
+    templateId: 'template_6yp0hnr',
+    publicKey: 'sXKT6IXUv-LaVoLmT',
+    // serviceId: process.env.REACT_APP_EMAILJS_SERVICE_ID,
+    // templateId: process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+    // publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
+  };
+
+  // Initialize EmailJS
+  useEffect(() => {
+    // Initialize EmailJS with your public key
+    emailjs.init(EMAILJS_CONFIG.publicKey);
+  }, []);
 
   const projectTypes = [
     'Web Application',
@@ -55,7 +71,7 @@ const ContactForm = () => {
       case 'subject':
         return value.trim().length < 5 ? 'Subject must be at least 5 characters' : '';
       case 'message':
-        return value.trim().length < 10 ? 'Message must be at least 10 characters' : '';
+        return value.trim().length < 20 ? 'Message must be at least 20 characters' : '';
       default:
         return '';
     }
@@ -104,17 +120,51 @@ const ContactForm = () => {
       return;
     }
 
+    // Check if EmailJS is properly configured
+    if (
+      !EMAILJS_CONFIG.serviceId ||
+      !EMAILJS_CONFIG.templateId ||
+      !EMAILJS_CONFIG.publicKey ||
+      EMAILJS_CONFIG.serviceId === 'your_service_id'
+    ) {
+      setContactError(
+        'Email service is not properly configured. Please contact the administrator.'
+      );
+      return;
+    }
+
     setContactSubmitting(true);
     setContactError(null);
 
     try {
-      // await api.sendContactMessage({
-      //   ...formData,
-      //   timestamp: new Date().toISOString(),
-      // });
+      const templateParams = {
+        to_name: 'Thomas Musengwa',
+        to_email: 'thomasmusengwa1@gmail.com',
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        project_type: formData.projectType || 'Not specified',
+        budget: formData.budget || 'Not specified',
+        timeline: formData.timeline || 'Not specified',
+        timestamp: new Date().toLocaleString(),
+      };
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
+        templateParams
+      );
+
+      console.log('Email sent successfully:', response);
+
+      // Track successful submission
+      // if (typeof trackFormSubmission === 'function') {
+      //   trackFormSubmission('contact', true);
+      // }
 
       setContactSubmitted(true);
-      // trackFormSubmission("contact", true);
 
       // Reset form after successful submission
       setFormData({
@@ -132,9 +182,29 @@ const ContactForm = () => {
         resetContactForm();
       }, 5000);
     } catch (error) {
-      console.error('Contact form submission error:', error);
-      setContactError(error.message || 'Failed to send message. Please try again.');
-      trackFormSubmission('contact', false, error.message);
+      console.error('EmailJS error:', error);
+
+      let errorMessage = 'Failed to send message. Please try again.';
+
+      // Handle specific EmailJS error cases
+      if (error.status === 400) {
+        errorMessage = 'Invalid email configuration. Please check your details.';
+      } else if (error.status === 402) {
+        errorMessage = 'Email service quota exceeded. Please try again later.';
+      } else if (error.status === 403) {
+        errorMessage = 'Email service access denied. Please contact support.';
+      } else if (error.text) {
+        errorMessage = `Email service error: ${error.text}`;
+      }
+
+      setContactError(errorMessage);
+
+      // Track failed submission
+      // if (typeof trackFormSubmission === 'function') {
+      //   trackFormSubmission('contact', false, error.text || error.message);
+      // }
+    } finally {
+      setContactSubmitting(false);
     }
   };
 
@@ -279,7 +349,7 @@ const ContactForm = () => {
           {errors.subject && <span className="contact-form__field-error">{errors.subject}</span>}
         </motion.div>
 
-        {/* Project Details Row */}
+        {/* Project Details Row - Uncomment if you want to include these fields */}
         {/* <div className="contact-form__row">
           <motion.div className="contact-form__field" variants={fieldVariants}>
             <label htmlFor="projectType" className="contact-form__label">
