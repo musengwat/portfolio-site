@@ -5,6 +5,9 @@
   border-radius: var(--border-radius-2xl);
   box-shadow: var(--shadow-xl);
   border: 2px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .contact-form__header {
@@ -44,6 +47,7 @@
   flex-direction: column;
   gap: var(--spacing-6);
   margin-bottom: var(--spacing-8);
+  flex-grow: 1;
 }
 
 .contact-form__row {
@@ -56,6 +60,11 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-2);
+  flex-grow: 1;
+}
+
+.contact-form__field--subject {
+  flex-grow: 0;
 }
 
 .contact-form__label {
@@ -79,6 +88,7 @@
   font-family: inherit;
   transition: all 0.3s ease;
   resize: vertical;
+  height: 100%;
 }
 
 .contact-form__input:focus,
@@ -134,7 +144,7 @@
 }
 
 .contact-form__field-error::before {
-  content: "⚠";
+  content: '⚠';
   font-size: var(--font-size-sm);
 }
 
@@ -205,43 +215,43 @@
 }
 
 /* Dark theme adjustments */
-[data-theme="dark"] .contact-form__error {
+[data-theme='dark'] .contact-form__error {
   background: var(--color-error-900);
   border-color: var(--color-error-700);
   color: var(--color-error-300);
 }
 
-[data-theme="dark"] .contact-form__input,
-[data-theme="dark"] .contact-form__select,
-[data-theme="dark"] .contact-form__textarea {
+[data-theme='dark'] .contact-form__input,
+[data-theme='dark'] .contact-form__select,
+[data-theme='dark'] .contact-form__textarea {
   background: var(--color-background-tertiary);
   border-color: var(--color-border);
 }
 
-[data-theme="dark"] .contact-form__input:focus,
-[data-theme="dark"] .contact-form__select:focus,
-[data-theme="dark"] .contact-form__textarea:focus,
-[data-theme="dark"] .contact-form__input--focused,
-[data-theme="dark"] .contact-form__textarea--focused {
+[data-theme='dark'] .contact-form__input:focus,
+[data-theme='dark'] .contact-form__select:focus,
+[data-theme='dark'] .contact-form__textarea:focus,
+[data-theme='dark'] .contact-form__input--focused,
+[data-theme='dark'] .contact-form__textarea--focused {
   background: var(--color-background-secondary);
   border-color: var(--color-primary-500);
 }
 
-[data-theme="dark"] .contact-form__input--error,
-[data-theme="dark"] .contact-form__textarea--error {
+[data-theme='dark'] .contact-form__input--error,
+[data-theme='dark'] .contact-form__textarea--error {
   background: var(--color-error-900);
   border-color: var(--color-error-600);
 }
 
-[data-theme="dark"] .contact-form__success {
+[data-theme='dark'] .contact-form__success {
   border-color: var(--color-success-700);
 }
 
-[data-theme="dark"] .contact-form__success-icon {
+[data-theme='dark'] .contact-form__success-icon {
   color: var(--color-success-400);
 }
 
-[data-theme="dark"] .contact-form__success-title {
+[data-theme='dark'] .contact-form__success-title {
   color: var(--color-success-300);
 }
 

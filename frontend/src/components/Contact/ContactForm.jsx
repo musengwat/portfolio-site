@@ -329,7 +329,10 @@ const ContactForm = () => {
         </div>
 
         {/* Subject */}
-        <motion.div className="contact-form__field" variants={fieldVariants}>
+        <motion.div
+          className="contact-form__field contact-form__field--subject"
+          variants={fieldVariants}
+        >
           <label htmlFor="subject" className="contact-form__label">
             <MessageSquare size={16} />
             Subject *

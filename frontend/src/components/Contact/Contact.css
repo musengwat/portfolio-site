@@ -10,7 +10,7 @@
 }
 
 .contact::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -41,11 +41,7 @@
   font-weight: var(--font-weight-extrabold);
   line-height: var(--line-height-tight);
   margin-bottom: var(--spacing-4);
-  background: linear-gradient(
-    135deg,
-    var(--color-primary-600),
-    var(--color-accent-600)
-  );
+  background: linear-gradient(135deg, var(--color-primary-600), var(--color-accent-600));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -120,7 +116,7 @@
   display: flex;
   align-items: flex-start;
   gap: var(--spacing-4);
-  padding: var(--spacing-4);
+  padding: var(--spacing-2);
   border-radius: var(--border-radius-lg);
   transition: all 0.3s ease;
 }
@@ -224,6 +220,8 @@
 .contact__form-container {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 /* Additional Info */
@@ -270,11 +268,7 @@
 .contact__cta {
   text-align: center;
   padding: var(--spacing-16);
-  background: linear-gradient(
-    135deg,
-    var(--color-primary-600),
-    var(--color-accent-600)
-  );
+  background: linear-gradient(135deg, var(--color-primary-600), var(--color-accent-600));
   border-radius: var(--border-radius-2xl);
   color: white;
 }
@@ -341,7 +335,7 @@
 }
 
 /* Dark theme adjustments */
-[data-theme="dark"] .contact::before {
+[data-theme='dark'] .contact::before {
   background: linear-gradient(
     135deg,
     var(--color-primary-900) 0%,
@@ -350,21 +344,21 @@
   );
 }
 
-[data-theme="dark"] .contact__detail-icon {
+[data-theme='dark'] .contact__detail-icon {
   background: var(--color-primary-900);
   color: var(--color-primary-400);
 }
 
-[data-theme="dark"] .contact__availability {
+[data-theme='dark'] .contact__availability {
   background: var(--color-success-900);
   border-color: var(--color-success-700);
 }
 
-[data-theme="dark"] .contact__availability-text {
+[data-theme='dark'] .contact__availability-text {
   color: var(--color-success-300);
 }
 
-[data-theme="dark"] .contact__availability-description {
+[data-theme='dark'] .contact__availability-description {
   color: var(--color-success-400);
 }
 
