@@ -5,6 +5,28 @@ import { motion } from 'framer-motion';
 import { useScrollPosition } from '../../hooks/useScrollPosition';
 import './Navigation.css';
 
+const handleNavClick = (e, href, id) => {
+  e.preventDefault();
+  const scrollToSection = () => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+  const isRootOrHash = /^\/(#.*)?$/.test(window.location.pathname + window.location.hash);
+  if (!isRootOrHash) {
+    navigate(`/${href}`, { replace: false });
+    setTimeout(scrollToSection, 100);
+  } else {
+    scrollToSection();
+  }
+
+  onItemClick?.();
+};
+
 const Navigation = ({ isMobile = false, onItemClick }) => {
   const [activeSection, setActiveSection] = useState('hero');
   const scrollPosition = useScrollPosition();
@@ -15,7 +37,6 @@ const Navigation = ({ isMobile = false, onItemClick }) => {
     { id: 'about', label: 'About', href: '#about' },
     { id: 'portfolio', label: 'Portfolio', href: '#portfolio' },
     { id: 'resume', label: 'Resume', href: '#resume' },
-    // { id: "testimonials", label: "Testimonials", href: "#testimonials" },
     { id: 'contact', label: 'Contact', href: '#contact' },
   ];
 
@@ -32,27 +53,6 @@ const Navigation = ({ isMobile = false, onItemClick }) => {
       setActiveSection(navItems[currentSection].id);
     }
   }, [scrollPosition]);
-  const handleNavClick = (e, href, id) => {
-    e.preventDefault();
-    const scrollToSection = () => {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        });
-      }
-    };
-    const isRootOrHash = /^\/(#.*)?$/.test(window.location.pathname + window.location.hash);
-    if (!isRootOrHash) {
-      navigate(`/${href}`, { replace: false });
-      setTimeout(scrollToSection, 100);
-    } else {
-      scrollToSection();
-    }
-
-    onItemClick?.();
-  };
 
   const containerVariants = {
     hidden: { opacity: 0 },

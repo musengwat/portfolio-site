@@ -69,6 +69,18 @@ const ProjectDetail = () => {
     });
   };
 
+  const handleGetInTouch = e => {
+    const contactElement = document.getElementById('contact');
+
+    navigate(`/#contact`, { replace: false });
+    setTimeout(
+      contactElement.scrollIntoView({
+        behavior: 'smooth',
+      }),
+      500
+    );
+  };
+
   if (!project) return null;
 
   return (
@@ -251,14 +263,7 @@ const ProjectDetail = () => {
               <p className="project-detail__cta-description">
                 Let's discuss your project and see how I can help bring your ideas to life.
               </p>
-              <Button
-                variant="primary"
-                onClick={() => {
-                  document.getElementById('contact')?.scrollIntoView({
-                    behavior: 'smooth',
-                  });
-                }}
-              >
+              <Button variant="primary" onClick={handleGetInTouch}>
                 Get In Touch
               </Button>
             </div>
