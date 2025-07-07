@@ -183,7 +183,7 @@
 
 /* Section Content */
 .resume__section-content {
-  margin-bottom: var(--spacing-16);
+  margin-bottom: var(--spacing-8);
   min-height: 400px;
 }
 
@@ -300,7 +300,7 @@
 
 /* Additional Info Section */
 .resume__additional {
-  margin-bottom: var(--spacing-16);
+  /* margin-bottom: var(--spacing-16); */
 }
 
 .resume__additional-grid {
@@ -400,6 +400,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-2);
+  margin-bottom: var(--spacing-8);
 }
 
 .resume__extras-item {

@@ -270,12 +270,17 @@ export const personalInfo = {
 
   // Interests & Hobbies
   interests: [
-    'Open Source Contributions',
-    'Technology Blogging',
+    'Exploring New Technologies',
     'Mentoring Developers',
-    'Rock Climbing',
-    'Photography',
-    'Travel & Culture',
+    'Video Games & Gaming',
+    'Cars, Motorcycles & Automotive Projects',
+    '3D Printing & Fabrication',
+    'Electronics & Circuit Building',
+    'DIY Projects & Building Things',
+    'Travel & Adventure',
+    'Outdoor Activities',
+    'Tinkering & Problem Solving',
+    'Learning New Skills',
   ],
 
   // Professional summary

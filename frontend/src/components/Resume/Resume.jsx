@@ -200,47 +200,8 @@ const Resume = () => {
             {renderSection()}
           </motion.div>
 
-          {/* Additional Info */}
-          <motion.div className="resume__additional" variants={itemVariants}>
-            <div className="resume__additional-grid">
-              <div className="resume__additional-item">
-                <MapPin size={24} className="resume__additional-icon" />
-                <div className="resume__additional-content">
-                  <h4 className="resume__additional-title">Location</h4>
-                  <p className="resume__additional-text">{personalInfo.location}</p>
-                  <span className="resume__additional-detail">
-                    Open to remote work and relocation
-                  </span>
-                </div>
-              </div>
-
-              <div className="resume__additional-item">
-                <Calendar size={24} className="resume__additional-icon" />
-                <div className="resume__additional-content">
-                  <h4 className="resume__additional-title">Availability</h4>
-                  <p className="resume__additional-text resume__additional-text--available">
-                    {personalInfo.availability}
-                  </p>
-                  <span className="resume__additional-detail">Ready to start new projects</span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Languages & Interests */}
           <motion.div className="resume__extras" variants={itemVariants}>
             <div className="resume__extras-grid">
-              <div className="resume__extras-section">
-                <h4 className="resume__extras-title">Languages</h4>
-                <div className="resume__extras-content">
-                  {personalInfo.languages?.map((language, index) => (
-                    <span key={index} className="resume__extras-item">
-                      {language}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
               <div className="resume__extras-section">
                 <h4 className="resume__extras-title">Interests</h4>
                 <div className="resume__extras-content">
@@ -250,6 +211,38 @@ const Resume = () => {
                     </span>
                   ))}
                 </div>
+
+                {/* Additional Info */}
+                <motion.div className="resume__additional" variants={itemVariants}>
+                  <div className="resume__additional-grid">
+                    <div className="resume__additional-item">
+                      <MapPin size={24} className="resume__additional-icon" />
+                      <div className="resume__additional-content">
+                        <h4 className="resume__additional-title">Location</h4>
+                        <p className="resume__additional-text">{personalInfo.location}</p>
+                        <span className="resume__additional-detail">
+                          Open to remote work and relocation
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="resume__additional-item">
+                      <Calendar size={24} className="resume__additional-icon" />
+                      <div className="resume__additional-content">
+                        <h4 className="resume__additional-title">Availability</h4>
+                        {/* <p className="resume__additional-text resume__additional-text--available"> */}
+                        <p
+                          className={`resume__additional-text resume__additional-text${personalInfo.forHire && '--available'}`}
+                        >
+                          {personalInfo.availability}
+                        </p>
+                        <span className="resume__additional-detail">
+                          Ready to start new projects
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
               </div>
             </div>
           </motion.div>

@@ -34,7 +34,6 @@ const Navigation = ({ isMobile = false, onItemClick }) => {
   }, [scrollPosition]);
   const handleNavClick = (e, href, id) => {
     e.preventDefault();
-    const url = window.location.href;
     const scrollToSection = () => {
       const element = document.getElementById(id);
       if (element) {
@@ -44,9 +43,9 @@ const Navigation = ({ isMobile = false, onItemClick }) => {
         });
       }
     };
-
-    if (url && url.includes('project')) {
-      navigate('/', { replace: false });
+    const isRootOrHash = /^\/(#.*)?$/.test(window.location.pathname + window.location.hash);
+    if (!isRootOrHash) {
+      navigate(`/${href}`, { replace: false });
       setTimeout(scrollToSection, 100);
     } else {
       scrollToSection();

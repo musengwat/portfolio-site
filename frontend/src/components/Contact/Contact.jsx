@@ -154,32 +154,6 @@ const Contact = () => {
             </motion.div>
           </div>
 
-          {/* Additional Info */}
-          {/* <motion.div className="contact__additional" variants={itemVariants}>
-            <div className="contact__additional-grid">
-              <div className="contact__additional-item">
-                <h4 className="contact__additional-title">Response Time</h4>
-                <p className="contact__additional-text">
-                  I typically respond to emails within 24 hours during business days.
-                </p>
-              </div>
-
-              <div className="contact__additional-item">
-                <h4 className="contact__additional-title">Project Timeline</h4>
-                <p className="contact__additional-text">
-                  Most projects start within 1-2 weeks of initial consultation.
-                </p>
-              </div>
-
-              <div className="contact__additional-item">
-                <h4 className="contact__additional-title">Free Consultation</h4>
-                <p className="contact__additional-text">
-                  30-minute discovery call to discuss your project needs and goals.
-                </p>
-              </div>
-            </div>
-          </motion.div> */}
-
           {/* CTA Section */}
           <motion.div className="contact__cta" variants={itemVariants}>
             <div className="contact__cta-content">
