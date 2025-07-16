@@ -15,13 +15,12 @@ export const useIntersectionObserver = (options = {}) => {
         const intersecting = entry.isIntersecting;
         setIsIntersecting(intersecting);
 
-        // Once intersected, keep it true (for animations that should only happen once)
         if (intersecting && !hasIntersected) {
           setHasIntersected(true);
         }
       },
       {
-        threshold: 0.2,
+        threshold: [0.1, 0.2],
         rootMargin: '0px 0px -24px 0px',
         ...options,
       }
