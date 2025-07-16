@@ -267,6 +267,7 @@
 
   .hero__image {
     order: -1;
+    justify-content: center;
   }
 
   .hero__image-container {

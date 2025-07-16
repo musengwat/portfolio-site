@@ -505,6 +505,7 @@
 
   .experience-timeline__line {
     left: calc(var(--spacing-4) - 1.5px);
+    display: none;
   }
 
   .experience-timeline__content {

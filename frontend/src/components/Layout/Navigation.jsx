@@ -5,32 +5,33 @@ import { motion } from 'framer-motion';
 import { useScrollPosition } from '../../hooks/useScrollPosition';
 import './Navigation.css';
 
-const handleNavClick = (e, href, id) => {
-  e.preventDefault();
-  const scrollToSection = () => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
-  };
-  const isRootOrHash = /^\/(#.*)?$/.test(window.location.pathname + window.location.hash);
-  if (!isRootOrHash) {
-    navigate(`/${href}`, { replace: false });
-    setTimeout(scrollToSection, 100);
-  } else {
-    scrollToSection();
-  }
-
-  onItemClick?.();
-};
-
 const Navigation = ({ isMobile = false, onItemClick }) => {
   const [activeSection, setActiveSection] = useState('hero');
   const scrollPosition = useScrollPosition();
   const navigate = useNavigate();
+
+  const handleNavClick = (e, href, id) => {
+    e.preventDefault();
+    isMobile && onItemClick?.();
+    const scrollToSection = () => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+    };
+    const isRootOrHash = /^\/(#.*)?$/.test(window.location.pathname + window.location.hash);
+    if (!isRootOrHash) {
+      navigate(`/${href}`, { replace: false });
+      setTimeout(scrollToSection, 100);
+    } else {
+      scrollToSection();
+    }
+
+    onItemClick?.();
+  };
 
   const navItems = [
     { id: 'hero', label: 'Home', href: '#hero' },
