@@ -22,6 +22,7 @@ export const useIntersectionObserver = (options = {}) => {
       {
         threshold: [0.1, 0.2],
         rootMargin: '0px 0px -24px 0px',
+        delay: 100,
         ...options,
       }
     );
