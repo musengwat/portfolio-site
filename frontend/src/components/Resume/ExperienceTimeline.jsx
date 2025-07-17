@@ -141,15 +141,8 @@ const Header = ({ item }) => {
   );
 };
 
-const StatusBadge = () => {
-  return (
-    <div className="experience-timeline__status">
-      <span className="experience-timeline__status-badge">Current Position</span>
-    </div>
-  );
-};
-
-const TimeLocation = ({ item }) => {
+const TimeLocation = ({ status, item }) => {
+  console.log('status:', item.title, status);
   return (
     <div className="experience-timeline__meta">
       <div className="experience-timeline__date-location">
@@ -164,10 +157,13 @@ const TimeLocation = ({ item }) => {
           <span>{item.location}</span>
         </div>
       </div>
-
-      <div className="experience-timeline__duration">
-        {calculateDuration(item.startDate, item.endDate)}
-      </div>
+      {status === 'current' ? (
+        <span className="experience-timeline__status-badge">Current Position</span>
+      ) : (
+        <div className="experience-timeline__duration">
+          {calculateDuration(item.startDate, item.endDate)}
+        </div>
+      )}
     </div>
   );
 };
@@ -215,7 +211,7 @@ const ExperienceTimeline = ({ data, type = 'experience' }) => {
     }
   };
 
-  const getStatusColor = endDate => {
+  const getStatus = endDate => {
     return endDate ? 'completed' : 'current';
   };
 
@@ -230,19 +226,21 @@ const ExperienceTimeline = ({ data, type = 'experience' }) => {
         {data.map((item, index) => {
           const isExpanded = expandedItems[item.id];
           const isLast = index === data.length - 1;
-          const statusColor = getStatusColor(item.endDate);
+          const positionStatus = getStatus(item.endDate);
 
           return (
             <motion.div
               key={item.id}
-              className={`experience-timeline__item experience-timeline__item--${statusColor}`}
+              className={`experience-timeline__item experience-timeline__item--${positionStatus}`}
               variants={itemVariants}
             >
               {/* Timeline Line */}
               {!isLast && <div className="experience-timeline__line" />}
 
               {/* Timeline Dot */}
-              <div className={`experience-timeline__dot experience-timeline__dot--${statusColor}`}>
+              <div
+                className={`experience-timeline__dot experience-timeline__dot--${positionStatus}`}
+              >
                 {type === 'education' ? getTypeIcon(item.type) : <Building size={20} />}
               </div>
 
@@ -250,10 +248,8 @@ const ExperienceTimeline = ({ data, type = 'experience' }) => {
               <div className="experience-timeline__content">
                 <div className="experience-timeline__header">
                   <Header item={item} />
-                  <TimeLocation item={item} />
+                  <TimeLocation item={item} status={positionStatus} />
                 </div>
-
-                {statusColor === 'current' && <StatusBadge />}
 
                 <p className="experience-timeline__description">{item.description}</p>
 
